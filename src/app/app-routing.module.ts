@@ -5,6 +5,7 @@ import { ErrorComponent } from "./error/error.component";
 const routes: Routes = [
     // { path: '', redirectTo: '', pathMatch: 'full' },
     { path: '', loadChildren: './home/home.module#HomeModule' },
+    { path: '', loadChildren: './user/user.module#UserModule' },
     // Lazy loaded module
     //   { path: 'todos', loadChildren: './todos/todo.module#TodoModule'}
     { path: '**', component: ErrorComponent },

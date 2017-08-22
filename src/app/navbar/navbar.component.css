@@ -1,0 +1,10 @@
+* {
+    background: purple;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.87);
+}
+
+a {
+    font-size: 14px;
+    text-transform: uppercase;
+}
