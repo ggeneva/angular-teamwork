@@ -2,14 +2,7 @@
   login works!
 </p>
 
-<div *ngIf="this.authService.userInfo !== null">
-  Display name: {{this.authService.userInfo.displayName}}
-  <br> Email: {{this.authService.userInfo.email}}
-  <br> Phone: {{this.authService.userInfo.phoneNumber}}
-  <br> Photo: <img src="{{this.authService.userInfo.photoURL}}">
-  <br> Provider: {{this.authService.userInfo.providerData}}
-</div>
-<span *ngIf="this.authService.userInfo === null"> Not logged in yet</span>
+<span *ngIf="!this.authService.isLoggedIn()"> Not logged in yet</span>
 <br>
 <br>
 <!-- <li *ngFor="let obj of this.authService.blah">Key: {{obj.key}}, value: {{obj.value}}</li> -->

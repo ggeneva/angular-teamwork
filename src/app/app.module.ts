@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from "angularfire2/auth";
@@ -41,7 +42,8 @@ export const dbConfig = {
     MdMenuModule,
     MdButtonModule,
     AngularFireModule.initializeApp(dbConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,

@@ -6,11 +6,15 @@ import { UserComponent } from './user.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from "./user-routing.module";
+import { MdInputModule, MaterialModule } from "@angular/material";
 
 @NgModule({
   imports: [
     UserRoutingModule,
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    MdInputModule,
+    
   ],
   declarations: [
     LoginComponent,

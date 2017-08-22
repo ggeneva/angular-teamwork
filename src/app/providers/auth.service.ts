@@ -5,17 +5,23 @@ import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class AuthService {
-  user: Observable<firebase.User>;
-  test: any;
-  userInfo: any;
+  private userObservable: Observable<firebase.User>;
+  public user: any;
 
   constructor(public afAuth: AngularFireAuth) {
-    this.user = afAuth.authState;
-    this.userInfo = this.user.subscribe(
+    this.userObservable = afAuth.authState;
+    this.user = this.userObservable.subscribe(
       res => {
-        this.userInfo = res;
+        this.user = res;
       }
     )
+  }
+
+  public isLoggedIn() {
+    if(this.user!==null){
+      return true;
+    }
+    return false;
   }
 
   public loginWithGoogle() {
@@ -24,6 +30,14 @@ export class AuthService {
 
   loginWithFacebook() {
     this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  }
+
+  loginWithEmail(email: string, password: string) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  }
+
+  register(){
+
   }
 
   logout() {
