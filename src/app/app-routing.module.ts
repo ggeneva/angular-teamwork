@@ -1,13 +1,13 @@
-import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ErrorComponent } from "./error/error.component";
 
 const routes: Routes = [
-    { path: '', redirectTo: '', pathMatch: 'full' },
+    // { path: '', redirectTo: '', pathMatch: 'full' },
+    { path: '', loadChildren: './home/home.module#HomeModule' },
     // Lazy loaded module
     //   { path: 'todos', loadChildren: './todos/todo.module#TodoModule'}
-    { path: '**', component: ErrorComponent, data: { status: 404, text: 'Page not found' } },
+    { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({

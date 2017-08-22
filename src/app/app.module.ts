@@ -1,16 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
+import 'hammerjs';
 
-import { AppComponent } from './app.component';
+import { MaterialModule, MdMenuModule, MdToolbarModule } from '@angular/material';
+
 import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
   imports: [
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    MaterialModule
+  ],
+  declarations: [
+    AppComponent,
+    NavbarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
