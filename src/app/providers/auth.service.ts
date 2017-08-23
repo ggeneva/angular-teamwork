@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   public isLoggedIn() {
-    if(this.user!==null){
+    if (this.user !== null) {
       return true;
     }
     return false;
@@ -36,7 +36,7 @@ export class AuthService {
     this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
-  register(){
+  register() {
 
   }
 
