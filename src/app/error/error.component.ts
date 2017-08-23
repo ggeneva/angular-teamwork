@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-error',
@@ -15,8 +15,4 @@ export class ErrorComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  ngOnDestroy() {
-  }
-
 }
