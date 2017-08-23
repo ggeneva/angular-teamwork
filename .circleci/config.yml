@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/angular-teamwork
+    docker:
+      - image: node:8.0
+    steps:      
+      - checkout
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+            npm --version
+      - run:
+          name: "Install dependencies"
+          command: |
+            yarn cache clean
+            yarn install
+      - run:
+          name: "Build angular"
+          command: yarn ng -- build --prod --aot --no-progress
+      # - run:
+      #     name: "Test angular"
+      #     command: yarn test -- --single-run --no-progress
+      - run:
+          name: "Run linter"
+          command: yarn lint
