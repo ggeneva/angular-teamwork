@@ -5,7 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
-import { UserRoutingModule } from "./user-routing.module";
+import { UserRoutingModule } from './user-routing.module';
 
 @NgModule({
   imports: [
