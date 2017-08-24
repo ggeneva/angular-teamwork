@@ -8,13 +8,15 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { MdInputModule, MaterialModule } from '@angular/material';
 import { UserRoutingModule } from './user-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     UserRoutingModule,
     CommonModule,
     MaterialModule,
-    MdInputModule
+    MdInputModule,
+    FormsModule
   ],
   declarations: [
     LoginComponent,

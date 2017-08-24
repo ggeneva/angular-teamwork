@@ -7,5 +7,26 @@
 <br>
 <!-- <li *ngFor="let obj of this.authService.blah">Key: {{obj.key}}, value: {{obj.value}}</li> -->
 
-<button (click)="this.authService.loginWithFacebook()" md-button>Login with Facebook</button>
-<button (click)="this.authService.loginWithGoogle()" md-button>Login with Google</button>
+<button (click)="loginWithFacebook()" md-button>Login with Facebook</button>
+<button (click)="loginWithGoogle()" md-button>Login with Google</button>
+
+<form class="example-form">
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <md-input-container class="example-full-width">
+          <input mdInput placeholder="Email" #email>
+        </md-input-container>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-input-container class="example-full-width">
+          <input type="password" mdInput placeholder="Password" #password>
+        </md-input-container>
+      </td>
+    </tr>
+  </table>
+  <a (click)="loginWithEmail(email.value, password.value)" md-button>Login</a>
+</form>
+

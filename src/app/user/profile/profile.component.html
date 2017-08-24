@@ -1,7 +1,7 @@
-<div *ngIf="this.authService.user !== null">
-  Display name: {{this.authService.user.displayName}}
-  <br> Email: {{this.authService.user.email}}
-  <br> Phone: {{this.authService.user.phoneNumber}}
-  <br> Photo: <img src="{{this.authService.user.photoURL}}">
-  <br> Provider: {{this.authService.user.providerData}}
+<div *ngIf="this.user !== null">
+  Display name: {{this.user.displayName}}
+  <br> Email: {{this.user.email}}
+  <br> Phone: {{this.user.phoneNumber}}
+  <br> Photo: <img src="{{this.user.photoURL}}">
+  <br> Provider: {{this.user.providerData}}
 </div>

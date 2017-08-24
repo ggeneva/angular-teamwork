@@ -22,6 +22,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './providers/auth.service';
+import { UserService } from './providers/user.service';
 
 export const dbConfig = {
   apiKey: 'AIzaSyCx_YIwr9xkNzKdSgl-wPWsihf7l_RbSKE',
@@ -51,6 +52,7 @@ export const dbConfig = {
   ],
   providers: [
     AuthService,
+    UserService,
     AngularFireAuth,
   ],
   bootstrap: [AppComponent]
