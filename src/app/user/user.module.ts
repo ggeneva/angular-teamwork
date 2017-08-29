@@ -5,12 +5,18 @@ import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
-import { UserRoutingModule } from "./user-routing.module";
+
+import { MdInputModule, MaterialModule } from '@angular/material';
+import { UserRoutingModule } from './user-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     UserRoutingModule,
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    MdInputModule,
+    FormsModule
   ],
   declarations: [
     LoginComponent,

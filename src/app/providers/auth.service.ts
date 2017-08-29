@@ -1,32 +1,72 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthService {
-  user: Observable<firebase.User>;
-  test: any;
-  userInfo: any;
+  private user: any;
 
   constructor(public afAuth: AngularFireAuth) {
-    this.user = afAuth.authState;
-    this.userInfo = this.user.subscribe(
+    this.afAuth.authState.subscribe(
       res => {
-        this.userInfo = res;
+        this.user = res;
       }
-    )
+    );
   }
 
-  public loginWithGoogle() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  public isLoggedIn() {
+    if (this.user !== null) {
+      return true;
+    }
+    return false;
   }
 
-  loginWithFacebook() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  public loginWithGoogle(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .catch((error) => {
+          return reject(error);
+        })
+        .then(() => {
+          return resolve();
+        });
+    });
   }
 
-  logout() {
-    this.afAuth.auth.signOut();
+  public loginWithFacebook(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        .catch((error) => {
+          return reject(error);
+        })
+        .then(() => {
+          return resolve();
+        });
+    });
+  }
+
+  public loginWithEmail(email: string, password: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        .catch((error) => {
+          return reject(error);
+        })
+        .then(() => {
+          return resolve();
+        });
+    });
+  }
+
+  public logout() {
+    return new Promise((resolve, reject) => {
+      return this.afAuth.auth.signOut()
+        .catch((error) => {
+          return reject(error);
+        })
+        .then(() => {
+          return resolve();
+        });
+    });
   }
 }
