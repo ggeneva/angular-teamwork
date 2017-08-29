@@ -1,4 +1,4 @@
-<form class="example-form" #registerForm="ngForm" (ngSubmit)="registerUser(signupForm)">
+<form class="example-form" #registerForm="ngForm" (ngSubmit)="registerUser()">
   <table class="example-full-width" cellspacing="0">
     <tr>
       <td>
@@ -24,7 +24,7 @@
     <tr>
       <td>
         <md-input-container class="example-full-width">
-          <input mdInput placeholder="Password" name="password" [(ngModel)]="user.password">
+          <input mdInput placeholder="Password" type="password" name="password" [(ngModel)]="user.password">
         </md-input-container>
       </td>
     </tr>

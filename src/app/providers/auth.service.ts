@@ -22,19 +22,51 @@ export class AuthService {
     return false;
   }
 
-  public loginWithGoogle() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  public loginWithGoogle(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .catch((error) => {
+          return reject(error);
+        })
+        .then(() => {
+          return resolve();
+        });
+    });
   }
 
-  public loginWithFacebook() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+  public loginWithFacebook(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        .catch((error) => {
+          return reject(error);
+        })
+        .then(() => {
+          return resolve();
+        });
+    });
   }
 
-  public loginWithEmail(email: string, password: string) {
-    this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  public loginWithEmail(email: string, password: string): Promise<any> {
+    return new Promise((resolve, reject) => {
+      return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        .catch((error) => {
+          return reject(error);
+        })
+        .then(() => {
+          return resolve();
+        });
+    });
   }
 
   public logout() {
-    this.afAuth.auth.signOut();
+    return new Promise((resolve, reject) => {
+      return this.afAuth.auth.signOut()
+        .catch((error) => {
+          return reject(error);
+        })
+        .then(() => {
+          return resolve();
+        });
+    });
   }
 }

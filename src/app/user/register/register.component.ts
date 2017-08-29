@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from '@angular/router';
 
 import { UserService } from '../../providers/user.service';
 import { User } from '../../models/user.model';
@@ -11,15 +12,21 @@ import { User } from '../../models/user.model';
 })
 export class RegisterComponent implements OnInit {
 
-  private user: User = new User();
+  public user: User = new User();
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   registerUser() {
-    this.userService.registerUserWithEmail(this.user);
+    this.userService.registerUserWithEmail(this.user)
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((result) => {
+        this.router.navigate(['']);
+      });
   }
 
 }
