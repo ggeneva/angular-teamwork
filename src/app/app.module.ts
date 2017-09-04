@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
 import {
   MaterialModule,
@@ -23,6 +23,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './providers/auth.service';
 import { UserService } from './providers/user.service';
+import { DataService } from './providers/data.service';
 
 export const dbConfig = {
   apiKey: 'AIzaSyCx_YIwr9xkNzKdSgl-wPWsihf7l_RbSKE',
@@ -53,7 +54,9 @@ export const dbConfig = {
   providers: [
     AuthService,
     UserService,
+    DataService,
     AngularFireAuth,
+    AngularFireDatabase
   ],
   bootstrap: [AppComponent]
 })
