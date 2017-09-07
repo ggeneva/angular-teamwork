@@ -1,33 +1,82 @@
-<form class="example-form" #registerForm="ngForm" (ngSubmit)="registerUser()">
-  <table class="example-full-width" cellspacing="0">
-    <tr>
-      <td>
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="First name" name="firstName" [(ngModel)]="user.firstName">
-        </md-input-container>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="Last Name" name="lastName" [(ngModel)]="user.lastName">
-        </md-input-container>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="Email" name="email" [(ngModel)]="user.email">
-        </md-input-container>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <md-input-container class="example-full-width">
-          <input mdInput placeholder="Password" type="password" name="password" [(ngModel)]="user.password">
-        </md-input-container>
-      </td>
-    </tr>
-  </table>
-  <button md-button type="submit">Register</button>
-</form>
+<div class="container">
+    <form class="form-horizontal" ngNativeValidate #registerForm="ngForm" (ngSubmit)="registerUser()">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2>Sign-up</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="firstName">First Name</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem">
+                          <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <input type="text" name="firstName" class="form-control" id="firstName"
+                          [(ngModel)]="user.firstName" placeholder="First Name" required autofocus/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="lastName">Last Name</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem">
+                          <i class="fa fa-user-o" aria-hidden="true"></i>
+                        </div>
+                        <input type="text" name="lastName" class="form-control" id="lastName"
+                          [(ngModel)]="user.lastName" placeholder="Last Name" required autofocus/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="email">E-Mail Address</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        <input type="text" name="email" class="form-control" id="email"
+                          [(ngModel)]="user.email" placeholder="you@example.com" required autofocus/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="sr-only" for="password">Password</label>
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        <input type="password" name="password" class="form-control" id="password"
+                          [(ngModel)]="user.password" placeholder="Password" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                    <!-- Put password error message here -->
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1rem">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success">
+                  <i class="fa fa-user-plus"></i> Register
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
