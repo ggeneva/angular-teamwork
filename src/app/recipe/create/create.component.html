@@ -1,9 +1,83 @@
-<form #createRecipeForm="ngForm" (ngSubmit)="createRecipe()" enctype="multipart/form-data">
-  <input type="file" id="files" name="files" accept="image/*" />
-  <input mdInput placeholder="Recipe name" name="name" [(ngModel)]="recipe.name">
-  <input mdInput placeholder="Preparation time" name="preparationTime" [(ngModel)]="recipe.preparationTime">
-  <input mdInput placeholder="Cooking time" name="cookingTime" [(ngModel)]="recipe.cookingTime">
-  <input mdInput placeholder="Servings" name="servings" [(ngModel)]="recipe.servings">
-  <textarea mdInput placeholder="Recipe description" name="lastName" [(ngModel)]="recipe.description"></textarea>
-      <input type="submit" value="Create"/>
-</form>
+<div class="container">
+  <form ngNativeValidate #createRecipeForm="ngForm" (ngSubmit)="createRecipe()" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <h2>Share your Recipe with the World: </h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="sr-only" for="name">Name</label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file-text-o" aria-hidden="true"></i></div>
+            <input placeholder="Recipe name" name="name" [(ngModel)]="recipe.name" class="form-control" required autofocus/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="sr-only" for="preparationTime">Preparation time: (min) </label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+            <input placeholder="Preparation time: (min)" name="preparationTime" [(ngModel)]="recipe.preparationTime" class="form-control"
+              required />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="sr-only" for="cookingTime">Cooking time: (min) </label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+            <input placeholder="Cooking time: (min)" name="cookingTime" [(ngModel)]="recipe.cookingTime" class="form-control" required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="sr-only" for="servings">Servings </label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-users" aria-hidden="true"></i></div>
+            <input placeholder="Servings" name="servings" [(ngModel)]="recipe.servings" class="form-control" required />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="sr-only" for="description">Description </label>
+          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+            <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-list-ul" aria-hidden="true"></i></div>
+            <textarea placeholder="Recipe description" name="description" [(ngModel)]="recipe.description" class="form-control"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="file" name="file" id="file" class="inputfile" />
+    <label for="file"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Choose a photo...</label>
+    <div class="row" style="padding-top: 1rem">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <button type="submit" id="share" value="Create" class="btn btn-success">
+              <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;Share it
+            </button>
+      </div>
+    </div>
+  </form>
+</div>
