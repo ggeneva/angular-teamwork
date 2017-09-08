@@ -9,9 +9,9 @@ export class BaseData {
         this.list = this.db.list('/' + this.listName);
     }
 
-    public add(item: any): Promise<any> {
+    public add(model: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            this.list.push(item)
+            this.list.push(model)
                 .catch((error) => {
                     reject(error);
                 })
