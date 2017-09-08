@@ -1,0 +1,9 @@
+<form #createRecipeForm="ngForm" (ngSubmit)="createRecipe()" enctype="multipart/form-data">
+  <input type="file" id="files" name="files" accept="image/*" />
+  <input mdInput placeholder="Recipe name" name="name" [(ngModel)]="recipe.name">
+  <input mdInput placeholder="Preparation time" name="preparationTime" [(ngModel)]="recipe.preparationTime">
+  <input mdInput placeholder="Cooking time" name="cookingTime" [(ngModel)]="recipe.cookingTime">
+  <input mdInput placeholder="Servings" name="servings" [(ngModel)]="recipe.servings">
+  <textarea mdInput placeholder="Recipe description" name="lastName" [(ngModel)]="recipe.description"></textarea>
+      <input type="submit" value="Create"/>
+</form>

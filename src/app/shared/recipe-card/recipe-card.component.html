@@ -1,0 +1,12 @@
+<div *ngIf="recipe">
+  <p>Name: {{recipe.name}}</p>
+  <p>Description: {{recipe.description}}</p>
+  <p *ngIf="recipe.preparationTime">Preparation(mins): {{recipe.preparationTime}}</p>
+  <p *ngIf="recipe.cookingTime">Cooking(mins): {{recipe.cookingTime}}</p>
+  <p *ngIf="recipe.servings">Servings: {{recipe.servings}}</p>
+  <p>Created on: {{recipe.dateCreated}}</p>
+  <p>Updated on: {{recipe.dateUpdated}}</p>
+  <p *ngIf="recipe.author">Author: {{recipe.author}}</p>
+  <p *ngIf="recipe.likes">Likes: {{recipe.likes}}</p>
+  <p *ngIf="recipe.image">ImageURL: {{recipe.image}}</p>
+</div>
