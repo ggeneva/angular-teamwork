@@ -8,8 +8,8 @@ export class Recipe {
     preparationTime: number;
     cookingTime: number;
     servings: number;
-    dateCreated: string;
-    dateUpdated: string;
+    dateCreated: number;
+    dateUpdated: number;
     imageUrl: string;
     author: User;
     likes: number;

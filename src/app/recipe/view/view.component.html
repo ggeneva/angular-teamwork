@@ -2,9 +2,9 @@
   <p>{{recipe.name}}</p>
   <p>{{recipe.description}}</p>
   <p>{{recipe.author.displayName}}</p>
-  <p>{{recipe.dateCreated}}</p>
+  <p>{{recipe.dateCreated | dateify}}</p>
   <!-- add date pipe -->
-  <p>{{recipe.dateUpdated}}</p>
+  <p>{{recipe.dateUpdated | dateify}}</p>
   <!-- add date pipe -->
   <p>{{recipe.servings}}</p>
   <p>{{recipe.preparationTime}}</p>

@@ -13,6 +13,7 @@ import { CreateCommentComponent } from '../shared/create-comment/create-comment.
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImagePreviewerComponent } from '../shared/image-previewer/image-previewer.component';
 import { PagingPipe } from '../pipes/paging.pipe';
+import { DateifyPipe } from '../pipes/dateify.pipe';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { PagingPipe } from '../pipes/paging.pipe';
     CommentComponent,
     CreateCommentComponent,
     ImagePreviewerComponent,
-    PagingPipe
+    PagingPipe,
+    DateifyPipe
   ],
   providers: []
 })
