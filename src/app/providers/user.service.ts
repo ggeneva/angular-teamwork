@@ -8,17 +8,13 @@ export class UserService {
   constructor(public afAuth: AngularFireAuth) {
   }
 
-  public registerUserWithEmail(user: User): Promise<any> {
+  public registerUserWithEmail(user: User, password): Promise<any> {
     return new Promise((resolve, reject) => {
-      return this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
+      return this.afAuth.auth.createUserWithEmailAndPassword(user.email, password)
         .catch((error) => {
           reject(error);
         })
         .then((result) => {
-          this.afAuth.auth.currentUser.updateProfile({
-            displayName: user.firstName + ' ' + user.lastName,
-            photoURL: null
-          });
           resolve();
         });
     });

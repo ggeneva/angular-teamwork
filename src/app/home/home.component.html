@@ -1,7 +1,7 @@
 <div class="bg">
   <div class="jumbotron">
-      <br>
-      <br>
+    <br>
+    <br>
     <div class="text">
       <h1 class="display-3">Welcome to The Little Secrets</h1>
       <p class="lead">Here you can find many recipes and share your favourites to the World</p>
@@ -12,6 +12,21 @@
           Recipes
         </a>
       </p>
+    </div>
   </div>
 </div>
-</div>
+
+  <p>
+    home works!
+  </p>
+
+  <ul>
+    <li *ngFor="let item of items | async">
+      <input type="text" #updatetext [value]="item.text" />
+      <button (click)="dataService.test.update(item.$key, { text: updatetext.value })">Update</button>
+      <button (click)="dataService.test.remove(item.$key)">Delete</button>
+    </li>
+  </ul>
+  <input type="text" #newitem />
+  <button (click)="dataService.test.add({ text: newitem.value })">Add</button>
+  <button (click)="dataService.test.remove()">Delete All</button>

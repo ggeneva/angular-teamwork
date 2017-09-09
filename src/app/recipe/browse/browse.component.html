@@ -3,8 +3,7 @@
         <form>
             <div class="input-group" id="search-input">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-                <input class="form-control" aria-describedby="basic-addon1" type="text" name="search" id="search" [(ngModel)]="filter.search"
-                    #search=ngModel placeholder="Search" />
+                <input class="form-control" aria-describedby="basic-addon1" type="text" name="search" id="search" [(ngModel)]="filter.search" #search=ngModel placeholder="Search" />
             </div>
             <label for="servings">Servings:</label>
             <select [(ngModel)]="filter.servings" name="servings" #servings=ngModel>

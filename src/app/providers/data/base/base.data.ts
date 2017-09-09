@@ -1,5 +1,6 @@
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import 'rxjs/add/operator/first';
+import { Observable } from 'rxjs/Observable';
 
 export class BaseData {
     private list: FirebaseListObservable<any[]>;
@@ -16,8 +17,8 @@ export class BaseData {
                 .catch((error) => {
                     reject(error);
                 })
-                .then(() => {
-                    resolve();
+                .then((result) => {
+                    resolve(result.key);
                 });
         });
     }
@@ -60,6 +61,10 @@ export class BaseData {
 
     public getObservableList() {
         return this.list;
+    }
+
+    public getObservableObject(key: string) {
+        return this.db.object('/' + this.listName + '/' + key);
     }
 
     public getAll() {

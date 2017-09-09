@@ -16,6 +16,7 @@ import { DataService } from './providers/data.service';
 import { FilterRecipesPipe } from './pipes/filter-recipes.pipe';
 import { SortRecipesPipe } from './pipes/sort-recipes.pipe';
 import { FooterComponent } from './shared/footer/footer.component';
+import { FileService } from './providers/file.service';
 
 export const dbConfig = {
   apiKey: 'AIzaSyCx_YIwr9xkNzKdSgl-wPWsihf7l_RbSKE',
@@ -44,6 +45,7 @@ export const dbConfig = {
     AuthService,
     UserService,
     DataService,
+    FileService,
     AngularFireAuth,
     AngularFireDatabase
   ],

@@ -1,4 +1,8 @@
+import { Comment } from './comment.model';
+import { User } from './user.model';
+
 export class Recipe {
+    $key: string;
     name: string;
     description: string;
     preparationTime: number;
@@ -6,7 +10,8 @@ export class Recipe {
     servings: number;
     dateCreated: string;
     dateUpdated: string;
-    image: string;
-    author: string;
+    imageUrl: string;
+    author: User;
     likes: number;
+    comments: Comment[];
 }
