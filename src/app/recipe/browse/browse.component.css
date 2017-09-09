@@ -1,0 +1,35 @@
+.search-form {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: left !important;
+    width: 60%;
+    background: rgba(205, 244, 187, 0.80);
+    padding:2%;
+    box-shadow: #7C7777 1px 1px 1px 1px;
+    margin-left:auto;
+    margin-right: auto;
+}
+#basic-addon1 {
+    background-color:#61D361;
+}
+#search-input {
+    width:100%;
+    margin-bottom: 5px;
+}
+.search-form > form > label {
+    font-weight: 600;
+    size: 1em;
+}
+.search-form > form > select {
+    width:30%;
+}
+#pagination {
+    color: #4AA24A;
+    text-align: center;
+    margin:auto;
+}
+@media only screen and (max-width: 990px) {
+    .search-form > form > select {
+        width:60%;
+    }
+}
