@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="bg">
   <div class="jumbotron">
       <br>
@@ -16,20 +15,3 @@
   </div>
 </div>
 </div>
-=======
-<p>
-  home works!
-</p>
-
-<ul>
-  <li *ngFor="let item of items | async">
-    <input type="text" #updatetext [value]="item.text" />
-    <button (click)="dataService.test.update(item.$key, { text: updatetext.value })">Update</button>
-    <button (click)="dataService.test.remove(item.$key)">Delete</button>
-  </li>
-</ul>
-<input type="text" #newitem />
-<button (click)="dataService.test.add({ text: newitem.value })">Add</button>
-<button (click)="dataService.test.remove()">Delete All</button>
-
->>>>>>> e097e2629383bc04e68a63d5e83784b462f3374e
