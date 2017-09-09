@@ -4,8 +4,8 @@
            -->
 <div *ngIf="recipe">
   <div class="card">
-      <a class="img-card" href="NAVIGATE TO RECIPE">
-          <img src="{{recipe.image}}"/>
+      <a class="img-card" href="{{recipe.$key}}">
+          <img src="{{recipe.imageUrl}}"/>
           <!--<img src="../../../assets/images/jumbotron-img.jpg"/>-->
       </a>
       <div class="card-content">
@@ -27,7 +27,7 @@
           <button id="like-btn" class="btn rounded-circle">
               {{recipe.likes}}&nbsp;<i class="fa fa-heart" aria-hidden="true"></i>
           </button>
-          <button class="btn btn-success" routerLink="recipe.$key" routerLinkActive >
+          <button class="btn btn-success" routerLink="{{recipe.$key}}" routerLinkActive >
               <i class="fa fa-info-circle" aria-hidden="true"></i> READ MORE
           </button>
       </div>
