@@ -27,6 +27,11 @@
     color: #4AA24A;
     text-align: center;
     margin:auto;
+    margin-bottom:100px;
+    margin-top:20px;
+}
+#footer {
+    position: relative;
 }
 @media only screen and (max-width: 990px) {
     .search-form > form > select {

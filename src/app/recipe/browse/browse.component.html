@@ -1,13 +1,12 @@
 <div class="container">
-  <div #filters class="search-form">
-    <form>
-      <div class="input-group" id="search-input">
-        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-        <input class="form-control" aria-describedby="basic-addon1" type="text" name="search" id="search" [(ngModel)]="filter.search"
-          #search=ngModel placeholder="Search" />
-      </div>
-      <label for="servings">Servings:</label>
-      <select [(ngModel)]="filter.servings" name="servings" #servings=ngModel>
+    <div #filters class="search-form">
+        <form>
+            <div class="input-group" id="search-input">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input class="form-control" aria-describedby="basic-addon1" type="text" name="search" id="search" [(ngModel)]="filter.search" #search=ngModel placeholder="Search" />
+            </div>
+            <label for="servings">Servings:</label>
+            <select [(ngModel)]="filter.servings" name="servings" #servings=ngModel>
                 <option selected></option>
                 <option value="1">1</option>
                 <option value="2 5">2-5</option>
@@ -32,19 +31,12 @@
                 <option value="60 120">1-2 hr</option>
                 <option value="120 999">more than 2 hr</option>
             </select>
-    </form>
-  </div>
-  <div class="row">
-    <ng-container *ngIf="recipes">
-      <div *ngFor="let recipe of (recipes | filterRecipes: filter) | paging: page" class="col-sm-4">
-        <app-recipe-card [recipe]="recipe"></app-recipe-card>
-      </div>
-    </ng-container>
-  </div>
-  <div *ngIf="recipes">
-      {{(recipes | filterRecipes: filter).length}} Results
-  </div>
-  <div id="pagination" *ngIf="recipes">
-    <ngb-pagination [collectionSize]="(recipes | filterRecipes: filter).length" [(page)]="page.number" [pageSize]="page.size" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
-  </div>
+        </form>
+    </div>
+    <div class="row">
+        <div *ngFor="let recipe of recipes | filterRecipes: filter" class="col-sm-4">
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
+        </div>
+    </div>
+
 </div>
