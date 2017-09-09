@@ -1,4 +1,5 @@
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import 'rxjs/add/operator/first';
 
 export class BaseData {
     private list: FirebaseListObservable<any[]>;
@@ -61,6 +62,13 @@ export class BaseData {
         return this.list;
     }
 
+    public getAll() {
+        return this.list.first();
+    }
+
+    public getObservableByKey(key) {
+        return this.db.object('/' + this.listName + '/' + key);
+    }
 
     private getCollectionName(): string {
         return this.ModelClass.name.toLowerCase() + 's';

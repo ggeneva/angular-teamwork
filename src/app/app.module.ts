@@ -24,6 +24,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './providers/auth.service';
 import { UserService } from './providers/user.service';
 import { DataService } from './providers/data.service';
+import { FilterRecipesPipe } from './pipes/filter-recipes.pipe';
+import { SortRecipesPipe } from './pipes/sort-recipes.pipe';
+import { FooterComponent } from './shared/footer/footer.component';
 
 export const dbConfig = {
   apiKey: 'AIzaSyCx_YIwr9xkNzKdSgl-wPWsihf7l_RbSKE',
@@ -49,7 +52,8 @@ export const dbConfig = {
   ],
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   providers: [
     AuthService,
