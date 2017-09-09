@@ -1,4 +1,7 @@
+import { Comment } from './comment.model';
+
 export class Recipe {
+    $key: string;
     name: string;
     description: string;
     preparationTime: number;
@@ -9,4 +12,5 @@ export class Recipe {
     image: string;
     author: string;
     likes: number;
+    comments: Comment[];
 }

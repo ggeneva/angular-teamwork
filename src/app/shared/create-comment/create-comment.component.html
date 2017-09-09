@@ -1,0 +1,6 @@
+<form>
+    <p>{{user.displayName}}</p>
+    <p *ngIf="user.imageUrl">{{user.imageUrl}}</p>
+    <textarea #commentText></textarea>
+    <button (click)="submitComment(commentText.value)">Submit</button>
+</form>

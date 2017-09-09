@@ -4,10 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CreateComponent } from './create/create.component';
 import { BrowseComponent } from './browse/browse.component';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'browse', pathMatch: 'full' },
     { path: 'browse', component: BrowseComponent },
+    { path: 'browse/:key', component: ViewComponent },
     { path: 'create', component: CreateComponent },
 ];
 

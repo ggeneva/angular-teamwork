@@ -7,6 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowseComponent } from './browse/browse.component';
 import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
 import { FilterRecipesPipe } from '../pipes/filter-recipes.pipe';
+import { ViewComponent } from './view/view.component';
+import { CommentComponent } from '../shared/comment/comment.component';
+import { CreateCommentComponent } from '../shared/create-comment/create-comment.component';
 
 @NgModule({
   imports: [
@@ -14,7 +17,14 @@ import { FilterRecipesPipe } from '../pipes/filter-recipes.pipe';
     RecipeRoutingModule,
     FormsModule
   ],
-  declarations: [CreateComponent, BrowseComponent, RecipeCardComponent, FilterRecipesPipe],
+  declarations: [CreateComponent,
+    BrowseComponent,
+    RecipeCardComponent,
+    FilterRecipesPipe,
+    ViewComponent,
+    CommentComponent,
+    CreateCommentComponent
+  ],
   providers: []
 })
 export class RecipeModule { }
