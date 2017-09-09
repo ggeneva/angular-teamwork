@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImagePreviewerComponent } from '../shared/image-previewer/image-previewer.component';
 import { PagingPipe } from '../pipes/paging.pipe';
 import { DateifyPipe } from '../pipes/dateify.pipe';
+import { SortRecipesPipe } from '../pipes/sort-recipes.pipe';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { DateifyPipe } from '../pipes/dateify.pipe';
     CreateCommentComponent,
     ImagePreviewerComponent,
     PagingPipe,
-    DateifyPipe
+    DateifyPipe,
+    SortRecipesPipe
   ],
   providers: []
 })

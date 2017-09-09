@@ -13,7 +13,9 @@ import { User } from '../../models/user.model';
 export class RegisterComponent implements OnInit {
 
   public user: User = new User();
-  public password: string;
+  public formFirstName: string;
+  public formLastName: string;
+  public formPassword: string;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -21,7 +23,8 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    this.userService.registerUserWithEmail(this.user, this.password)
+    this.user.displayName = this.formFirstName + ' ' + this.formLastName;
+    this.userService.registerUserWithEmail(this.user, this.formPassword)
       .catch((error) => {
         console.log(error);
       })
