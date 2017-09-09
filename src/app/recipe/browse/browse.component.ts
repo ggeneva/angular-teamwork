@@ -2,13 +2,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../../providers/data.service';
 import { Recipe } from '../../models/recipe.model';
 import { FilterRecipesPipe } from '../../pipes/filter-recipes.pipe';
+import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
   styleUrls: ['./browse.component.css']
 })
-export class BrowseComponent implements OnInit {
+export class BrowseComponent implements OnInit, OnDestroy {
   // for paggination
   public page = {
     number: 1,
@@ -18,7 +19,7 @@ export class BrowseComponent implements OnInit {
   public resultsCount;
 
   public recipes: Recipe[];
-  private recipesSub;
+  private recipesSub: ISubscription;
   public filter: any = {};
 
   constructor(private db: DataService) { }
@@ -37,6 +38,10 @@ export class BrowseComponent implements OnInit {
       .subscribe(data => {
         this.recipes = data;
       });
+  }
+
+  ngOnDestroy() {
+    this.recipesSub.unsubscribe();
   }
 
 }
