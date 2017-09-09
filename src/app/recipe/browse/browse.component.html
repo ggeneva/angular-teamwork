@@ -43,7 +43,7 @@
   </div>
   <p *ngIf="recipes">{{(recipes | filterRecipes: filter)?.length}} Results</p>
   <div id="pagination" *ngIf="recipes">
-    <ngb-pagination [collectionSize]="(recipes | : filter)?.length" [(page)]="page.number" [pageSize]="page.size"
+    <ngb-pagination [collectionSize]="(recipes | filterRecipes: filter)?.length" [(page)]="page.number" [pageSize]="page.size"
       [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
   </div>
 </div>
