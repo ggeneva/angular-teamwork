@@ -10,9 +10,14 @@ export class FilterRecipesPipe implements PipeTransform {
   transform(recipes: Recipe[], filter?: any): any {
     let filtered: Recipe[] = recipes;
 
-    filtered = filter.search
-      ? filtered.filter(recipe => recipe.name.toLowerCase().indexOf(filter.search.toLowerCase()) !== -1)
-      : filtered;
+    if (!filter) {
+      return recipes;
+    }
+
+    if (filter.search) {
+      console.log(filter);
+      filtered = filtered.filter(recipe => recipe.name.toLowerCase().indexOf(filter.search.toLowerCase()) !== -1);
+    }
 
     if (filter.servings) {
       const bounderies = filter.servings.split(' ');

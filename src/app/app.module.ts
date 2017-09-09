@@ -17,6 +17,7 @@ import { FilterRecipesPipe } from './pipes/filter-recipes.pipe';
 import { SortRecipesPipe } from './pipes/sort-recipes.pipe';
 import { FooterComponent } from './shared/footer/footer.component';
 import { FileService } from './providers/file.service';
+import { PagingPipe } from './pipes/paging.pipe';
 
 export const dbConfig = {
   apiKey: 'AIzaSyCx_YIwr9xkNzKdSgl-wPWsihf7l_RbSKE',

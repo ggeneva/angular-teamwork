@@ -1,7 +1,7 @@
 <div *ngIf="recipe">
   <p>{{recipe.name}}</p>
   <p>{{recipe.description}}</p>
-  <p>{{recipe.author}}</p>
+  <p>{{recipe.author.displayName}}</p>
   <p>{{recipe.dateCreated}}</p>
   <!-- add date pipe -->
   <p>{{recipe.dateUpdated}}</p>

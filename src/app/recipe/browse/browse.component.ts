@@ -10,7 +10,13 @@ import { FilterRecipesPipe } from '../../pipes/filter-recipes.pipe';
 })
 export class BrowseComponent implements OnInit {
   // for paggination
-  page = 1;
+  public page = {
+    number: 1,
+    size: 6
+  };
+
+  public resultsCount;
+
   public recipes: Recipe[];
   private recipesSub;
   public filter: any = {};

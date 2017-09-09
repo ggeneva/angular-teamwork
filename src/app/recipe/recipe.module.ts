@@ -12,6 +12,7 @@ import { CommentComponent } from '../shared/comment/comment.component';
 import { CreateCommentComponent } from '../shared/create-comment/create-comment.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ImagePreviewerComponent } from '../shared/image-previewer/image-previewer.component';
+import { PagingPipe } from '../pipes/paging.pipe';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { ImagePreviewerComponent } from '../shared/image-previewer/image-preview
     ViewComponent,
     CommentComponent,
     CreateCommentComponent,
-    ImagePreviewerComponent
+    ImagePreviewerComponent,
+    PagingPipe
   ],
   providers: []
 })
