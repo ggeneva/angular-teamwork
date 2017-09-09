@@ -13,6 +13,7 @@ import { User } from '../../models/user.model';
 export class RegisterComponent implements OnInit {
 
   public user: User = new User();
+  public password: string;
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser() {
-    this.userService.registerUserWithEmail(this.user)
+    this.userService.registerUserWithEmail(this.user, this.password)
       .catch((error) => {
         console.log(error);
       })

@@ -11,6 +11,7 @@ import { ViewComponent } from './view/view.component';
 import { CommentComponent } from '../shared/comment/comment.component';
 import { CreateCommentComponent } from '../shared/create-comment/create-comment.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ImagePreviewerComponent } from '../shared/image-previewer/image-previewer.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FilterRecipesPipe,
     ViewComponent,
     CommentComponent,
-    CreateCommentComponent
+    CreateCommentComponent,
+    ImagePreviewerComponent
   ],
   providers: []
 })

@@ -10,7 +10,7 @@ export class Recipe {
     servings: number;
     dateCreated: string;
     dateUpdated: string;
-    image: string;
+    imageUrl: string;
     author: User;
     likes: number;
     comments: Comment[];

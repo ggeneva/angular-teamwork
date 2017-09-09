@@ -17,8 +17,8 @@ export class BaseData {
                 .catch((error) => {
                     reject(error);
                 })
-                .then(() => {
-                    resolve();
+                .then((result) => {
+                    resolve(result.key);
                 });
         });
     }
