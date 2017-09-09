@@ -10,12 +10,14 @@ import { FilterRecipesPipe } from '../pipes/filter-recipes.pipe';
 import { ViewComponent } from './view/view.component';
 import { CommentComponent } from '../shared/comment/comment.component';
 import { CreateCommentComponent } from '../shared/create-comment/create-comment.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     RecipeRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   declarations: [CreateComponent,
     BrowseComponent,
