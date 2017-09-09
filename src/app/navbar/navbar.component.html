@@ -1,5 +1,6 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand" routerLink="." routerLinkActive="active">
@@ -7,17 +8,23 @@
   </a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item">
-          <a class="nav-link" routerLink=".">
+      <li class="nav-item">
+        <a class="nav-link" routerLink=".">
             <i class="fa fa-home" aria-hidden="true"></i>
             Home
           </a>
-        </li>
+      </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="recipes">
-          <i class="fa fa-book" aria-hidden="true"></i>
-          Recipes
-        </a>
+            <i class="fa fa-book" aria-hidden="true"></i>
+            Browse recipes
+          </a>
+      </li>
+      <li class="nav-item" *ngIf="this.authService.isLoggedIn()">
+        <a class="nav-link" routerLink="recipes/create">
+            <i class="fa fa-book" aria-hidden="true"></i>
+            Create recipe
+          </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="!this.authService.isLoggedIn()" routerLink="login" routerLinkActive="active">
@@ -32,18 +39,19 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  routerLink="adasdasdas/dasdasdasd/asdasd" routerLinkActive="active">
+        <a class="nav-link" routerLink="adasdasdas/dasdasdasd/asdasd" routerLinkActive="active">
           <i class="fa fa-bomb" aria-hidden="true"></i>
           Test Error
         </a>
       </li>
       <li *ngIf="this.authService.isLoggedIn()" class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
           <i class="fa fa-user-o" aria-hidden="true"></i>
           Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item"  *ngIf="this.authService.isLoggedIn()" routerLink="profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>
+          <a class="dropdown-item" *ngIf="this.authService.isLoggedIn()" routerLink="profile" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>
             <i class="fa fa-user" aria-hidden="true"></i>
             &nbsp;&nbsp;My Profile</a>
           <a class="dropdown-item" *ngIf="this.authService.isLoggedIn()" routerLink="logout" routerLinkActive="active">
