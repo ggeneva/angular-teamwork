@@ -62,6 +62,8 @@ export class CreateComponent implements OnInit {
                   this.router.navigateByUrl('recipes/browse/' + key);
                 });
             });
+        } else {
+          this.router.navigateByUrl('recipes/browse/' + key);
         }
       });
   }
