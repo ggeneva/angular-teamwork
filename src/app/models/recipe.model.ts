@@ -1,4 +1,5 @@
 import { Comment } from './comment.model';
+import { User } from './user.model';
 
 export class Recipe {
     $key: string;
@@ -10,7 +11,7 @@ export class Recipe {
     dateCreated: string;
     dateUpdated: string;
     image: string;
-    author: string;
+    author: User;
     likes: number;
     comments: Comment[];
 }

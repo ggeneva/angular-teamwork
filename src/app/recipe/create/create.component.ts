@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../models/recipe.model';
 import { DataService } from '../../providers/data.service';
 import { AuthService } from '../../providers/auth.service';
+import { UserService } from '../../providers/user.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-create',
@@ -11,8 +13,13 @@ import { AuthService } from '../../providers/auth.service';
 export class CreateComponent implements OnInit {
 
   public recipe: Recipe = new Recipe();
+  private user: User;
 
-  constructor(private db: DataService, private authService: AuthService) { }
+  constructor(
+    private db: DataService,
+    private authService: AuthService,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
   }
@@ -22,6 +29,7 @@ export class CreateComponent implements OnInit {
 
     this.recipe.dateCreated = now;
     this.recipe.dateUpdated = now;
+    this.recipe.author = this.userService.getCurrentUser();
 
     this.db.recipes.add(this.recipe);
 
