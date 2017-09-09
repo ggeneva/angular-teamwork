@@ -7,12 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowseComponent } from './browse/browse.component';
 import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
 import { FilterRecipesPipe } from '../pipes/filter-recipes.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     RecipeRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   declarations: [CreateComponent, BrowseComponent, RecipeCardComponent, FilterRecipesPipe],
   providers: []

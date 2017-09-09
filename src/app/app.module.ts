@@ -5,6 +5,7 @@ import 'hammerjs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ export const dbConfig = {
 
 @NgModule({
   imports: [
+    NgbModule.forRoot(),
     AppRoutingModule,
     BrowserModule,
     AngularFireModule.initializeApp(dbConfig),
