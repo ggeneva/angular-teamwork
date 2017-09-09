@@ -1,35 +1,45 @@
-<div #filters>
-  <form>
-      <input type="text" name="search" id="search" [(ngModel)]="filter.search" #search=ngModel placeholder="Search"/>
-      Servings:
-      <select [(ngModel)]="filter.servings" name="servings" #servings=ngModel>
-          <option selected></option>
-          <option value="1">1</option>
-          <option value="2 5">2-5</option>
-          <option value="6 10">6-10</option>
-          <option value="11 999">10+</option>
-      </select>
-      Prepare time:
-      <select [(ngModel)]="filter.preparationTime" name="preparationTime" #preparationTime=ngModel>
-          <option selected></option>
-          <option value="0 15">&lt;15 minutes</option>
-          <option value="15 30">15-30 minutes</option>
-          <option value="30 60">30-60 minutes</option>
-          <option value="60 120">1-2 hours</option>
-          <option value="120 999">more than 2 hours</option>
-      </select>
-      Cook time:
-      <select [(ngModel)]="filter.cookingTime" name="cookingTime" #cookingTime=ngModel>
-          <option selected></option>
-          <option value="0 15">&lt;15 minutes</option>
-          <option value="15 30">15-30 minutes</option>
-          <option value="30 60">30-60 minutes</option>
-          <option value="60 120">1-2 hours</option>
-          <option value="120 999">more than 2 hours</option>
-      </select>
-  </form>
+<div class="container">
+    <div #filters class="search-form">
+        <form>
+            <div class="input-group" id="search-input">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+                <input class="form-control" aria-describedby="basic-addon1" type="text" name="search" id="search" [(ngModel)]="filter.search" #search=ngModel placeholder="Search"/>
+                    #search=ngModel placeholder="Search" />
+            </div>
+            <label for="servings">Servings:</label>
+            <select [(ngModel)]="filter.servings" name="servings" #servings=ngModel>
+                <option selected></option>
+                <option value="1">1</option>
+                <option value="2 5">2-5</option>
+                <option value="6 10">6-10</option>
+                <option value="11 999">10+</option>
+            </select>
+            <label for="preparationTime">Prepare time:</label>
+            <select [(ngModel)]="filter.preparationTime" name="preparationTime" #preparationTime=ngModel>
+                <option selected></option>
+                <option value="0 15">&lt;15 min</option>
+                <option value="15 30">15-30 min</option>
+                <option value="30 60">30-60 min</option>
+                <option value="60 120">1-2 hr</option>
+                <option value="120 999">more than 2 hr</option>
+            </select>
+            <label for="cookingTime">Cook time:</label>
+            <select [(ngModel)]="filter.cookingTime" name="cookingTime" #cookingTime=ngModel>
+                <option selected></option>
+                <option value="0 15">&lt;15 min</option>
+                <option value="15 30">15-30 min</option>
+                <option value="30 60">30-60 min</option>
+                <option value="60 120">1-2 hr</option>
+                <option value="120 999">more than 2 hr</option>
+            </select>
+        </form>
+    </div>
+    <div class="row">
+        <div *ngFor="let recipe of recipes | filterRecipes: filter" class="col-sm-4">
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
+        </div>
+    </div>
+    <div id="pagination">
+        <ngb-pagination [collectionSize]="120" [(page)]="page" [maxSize]="5" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+    </div>
 </div>
-<div *ngFor="let recipe of recipes | filterRecipes: filter">
-  <app-recipe-card [recipe]="recipe"></app-recipe-card>
-</div>
-

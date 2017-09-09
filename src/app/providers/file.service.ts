@@ -27,9 +27,6 @@ export class FileService {
           reject(error);
         });
     });
-    // const storageRef = firebase.storage().ref();
-
-    // const fileRef = storageRef.child('mountains.jpg');
   }
 
 }
