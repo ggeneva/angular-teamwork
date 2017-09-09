@@ -6,18 +6,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 
-import {
-  MaterialModule,
-  MdCoreModule,
-  MdToolbarModule,
-  MdSidenavModule,
-  MdButtonModule,
-  MdChipsModule,
-  MdListModule,
-  MdMenuModule,
-  MdInputModule
-} from '@angular/material';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -41,11 +29,6 @@ export const dbConfig = {
   imports: [
     AppRoutingModule,
     BrowserModule,
-    MaterialModule,
-    MdCoreModule,
-    MdListModule,
-    MdMenuModule,
-    MdButtonModule,
     AngularFireModule.initializeApp(dbConfig),
     AngularFireDatabaseModule,
     BrowserAnimationsModule

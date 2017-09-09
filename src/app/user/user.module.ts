@@ -6,7 +6,6 @@ import { UserComponent } from './user.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import { MdInputModule, MaterialModule } from '@angular/material';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
 
@@ -14,8 +13,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     UserRoutingModule,
     CommonModule,
-    MaterialModule,
-    MdInputModule,
     FormsModule
   ],
   declarations: [
