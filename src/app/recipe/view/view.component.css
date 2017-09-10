@@ -121,9 +121,23 @@ td {
     font-size: 5vw;
   }
 }
+<<<<<<< HEAD
+@media screen and (min-width: 765px) {
+    .card {
+       margin-right:0%;
+    }
+}
+
+@media screen and (min-width: 995px) {
+    #description {
+       font-size:1.5vw;
+    }
+}
+=======
 
 @media screen and (min-width: 765px) {
   .card {
     margin-right: 0%;
   }
 }
+>>>>>>> 8f06d62758c0d894deae199d76afd989f40b15f3
