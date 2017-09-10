@@ -1,0 +1,16 @@
+.container {
+    margin-bottom: 50px;
+    background: rgba(0, 0, 0, 0.52);
+    width: 100vw;
+}
+img,h2 {
+    display: block;
+    margin:auto;
+    margin-top: 50px;
+}
+img {
+    padding-top:50px;
+}
+h2 {
+    padding-bottom:50px;
+}
