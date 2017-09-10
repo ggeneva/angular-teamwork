@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Comment } from '../../models/comment.model';
+import { Recipe } from '../../models/recipe.model';
 
 @Component({
   selector: 'app-comment',
@@ -15,11 +16,15 @@ export class CommentComponent implements OnInit {
   uid: string;
 
   @Output()
-  commentRemoved = new EventEmitter<string>();
+  commentRemoved = new EventEmitter<Comment>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  removeComment(comment: Comment) {
+    this.commentRemoved.emit(comment);
   }
 
 }

@@ -49,3 +49,8 @@
   text-align: left;
   white-space: pre-line;
 }
+
+.remove-btn {
+  padding: 3px;
+  cursor: pointer;
+}
