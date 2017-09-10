@@ -61,7 +61,6 @@ export class ViewComponent implements OnInit, OnDestroy {
   }
 
   removeRecipe() {
-
     if (this.user &&
       this.recipe &&
       this.user.uid === this.recipe.authorUid) {
@@ -72,6 +71,21 @@ export class ViewComponent implements OnInit, OnDestroy {
           this.router.navigateByUrl('recipes/browse');
           alert('Your recipe for ' + recipeName + ' has been removed!');
         });
+    }
+  }
+
+  likeRecipe() {
+    if (this.user && this.recipe) {
+      this.recipe.likes = this.recipe.likes || [];
+      const liked = this.recipe.likes.indexOf(this.user.uid);
+
+      if (liked !== -1) {
+        return;
+      }
+
+      this.recipe.likes.push(this.user.uid);
+
+      this.db.recipes.set(this.recipe.$key, this.recipe);
     }
   }
 

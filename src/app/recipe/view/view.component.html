@@ -33,7 +33,7 @@
                 <p><b>DESCRIPTION:</b></p>
                 <p>{{recipe.description}}</p>
             </div>
-            <button id="like-btn" class="btn rounded-circle">
+            <button id="like-btn" class="btn rounded-circle" (click)="likeRecipe()">
                 {{recipe.likes?.length || 0}}&nbsp;<i class="fa fa-heart" aria-hidden="true"></i>
             </button>
             <br/>

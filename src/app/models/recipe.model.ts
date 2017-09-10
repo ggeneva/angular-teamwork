@@ -13,6 +13,6 @@ export class Recipe {
     imageUrl: string;
     author: User;
     authorUid: string;
-    likes: number;
+    likes: string[];
     comments: Comment[];
 }
