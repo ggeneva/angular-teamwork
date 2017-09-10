@@ -31,7 +31,7 @@ export class ViewComponent implements OnInit, OnDestroy {
   createComment(text: string) {
     this.recipe.comments = this.recipe.comments || [];
 
-    const now = Date.now().toString();
+    const now = new Date().getTime();
 
     this.recipe.comments.push({
       text: text,
@@ -52,11 +52,11 @@ export class ViewComponent implements OnInit, OnDestroy {
       this.recipeSub = this.db.recipes.getObservableObject(this.recipeKey)
         .subscribe(recipe => {
           this.recipe = recipe;
+          // TODO: implement me
+          if (!this.recipe.name) {
+            console.log('recipe not found');
+          }
         });
-      // TODO: implement me
-      if (!this.recipe) {
-        console.log('recipe not found');
-      }
     });
   }
 

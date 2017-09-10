@@ -45,7 +45,7 @@ export class CreateComponent implements OnInit {
   }
   public createRecipe() {
     const fileBrowser = this.fileUpload.nativeElement;
-    const now: string = Date.now().toString();
+    const now = new Date().getTime();
 
     this.recipe.dateCreated = now;
     this.recipe.dateUpdated = now;
