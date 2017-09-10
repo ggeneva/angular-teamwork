@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.redirectAfterLogin();
       })
       .catch((error) => {
-        console.log(error);
+        this.error = error.message;
       });
   }
 
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.redirectAfterLogin();
       })
       .catch((error) => {
-        console.log(error);
+        this.error = error.message;
       });
   }
 
@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       })
       .catch((error) => {
         this.error = error.message;
-        console.log(error.message);
       });
   }
 
