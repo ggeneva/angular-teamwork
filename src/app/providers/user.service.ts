@@ -15,7 +15,15 @@ export class UserService {
           reject(error);
         })
         .then((result) => {
-          resolve();
+          const photoURL = user.photoURL ? user.photoURL : null;
+          this.afAuth.auth.currentUser.updateProfile(
+            {
+              displayName: user.displayName,
+              photoURL: photoURL
+            })
+            .then(() => {
+              resolve();
+            });
         });
     });
   }
