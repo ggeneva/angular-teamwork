@@ -7,7 +7,7 @@
       <ng-container *ngIf="!comment.author.photoURL">
         <img class="img-fluid user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
       </ng-container>
-      
+
     </div>
   </div>
   <div class="col">
@@ -17,6 +17,9 @@
         <span class="text-muted">commented on: {{comment.dateCreated | dateify}}</span>
       </div>
       <div class="card-body">{{comment.text}}</div>
+      <ng-container *ngIf="uid && comment.author.uid === uid">        
+          <small class="text-right"><a (click)="removeComment(comment)" class="remove-btn">Remove</a></small>
+      </ng-container>
     </div>
   </div>
 </div>
