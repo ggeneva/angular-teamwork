@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   validationMessages = {
     'email': {
       'required': 'Email is required.',
-      'email': 'Must be a valid email'
+      'pattern': 'Email format is invalid'
     },
     'password': {
       'required': 'Password is required.',
@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
     this.userSignUpFrom = this.fb.group({
       'email': ['', [
         Validators.required,
-        Validators.email
+        Validators.pattern('^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$')
       ]
       ],
       'password': ['', [
