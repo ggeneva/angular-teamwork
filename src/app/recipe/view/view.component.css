@@ -103,8 +103,12 @@ td {
 }
 @media screen and (min-width: 765px) {
     .card {
-
        margin-right:0%;
     }
 }
 
+@media screen and (min-width: 995px) {
+    #description {
+       font-size:1.5vw;
+    }
+}
