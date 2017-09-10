@@ -7,8 +7,6 @@ const routes: Routes = [
     { path: '', loadChildren: './home/home.module#HomeModule' },
     { path: '', loadChildren: './user/user.module#UserModule' },
     { path: 'recipes', loadChildren: './recipe/recipe.module#RecipeModule' },
-    // Lazy loaded module
-    //   { path: 'todos', loadChildren: './todos/todo.module#TodoModule'}
     { path: '**', component: ErrorComponent },
 ];
 

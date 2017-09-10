@@ -20,6 +20,7 @@ import { FileService } from './providers/file.service';
 import { PagingPipe } from './pipes/paging.pipe';
 import { RouteGuardService } from './providers/route-guard.service';
 import { ConfirmDirective } from './directives/confirm-directive/confirm-link.directive';
+import { SharedModule } from './shared/shared.module';
 
 export const dbConfig = {
   apiKey: 'AIzaSyCx_YIwr9xkNzKdSgl-wPWsihf7l_RbSKE',
@@ -32,9 +33,9 @@ export const dbConfig = {
 
 @NgModule({
   imports: [
-    NgbModule.forRoot(),
     AppRoutingModule,
     BrowserModule,
+    NgbModule.forRoot(),
     AngularFireModule.initializeApp(dbConfig),
     AngularFireDatabaseModule,
     BrowserAnimationsModule

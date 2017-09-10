@@ -9,13 +9,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     UserRoutingModule,
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule
+    SharedModule
   ],
   declarations: [
     LoginComponent,
@@ -23,7 +22,6 @@ import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component
     UserComponent,
     LogoutComponent,
     ProfileComponent,
-    RecipeCardComponent
   ]
 })
 export class UserModule { }

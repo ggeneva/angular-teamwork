@@ -16,28 +16,18 @@ import { PagingPipe } from '../pipes/paging.pipe';
 import { DateifyPipe } from '../pipes/dateify.pipe';
 import { SortRecipesPipe } from '../pipes/sort-recipes.pipe';
 import { OnlyNumberDirective } from '../directives/number-directive/number.directive';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   imports: [
-    CommonModule,
-    RecipeRoutingModule,
-    FormsModule,
-    NgbModule,
-    ReactiveFormsModule
+    SharedModule,
+    RecipeRoutingModule
   ],
-  declarations: [CreateComponent,
+  declarations: [
+    CreateComponent,
     BrowseComponent,
-    RecipeCardComponent,
-    FilterRecipesPipe,
-    ViewComponent,
-    CommentComponent,
-    CreateCommentComponent,
-    ImagePreviewerComponent,
-    PagingPipe,
-    DateifyPipe,
-    SortRecipesPipe,
-    OnlyNumberDirective
+    ViewComponent
   ],
   providers: []
 })
