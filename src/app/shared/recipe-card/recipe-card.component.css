@@ -24,6 +24,7 @@
     height: 60%;
     object-fit:cover;
     transition: all .25s ease;
+    max-height: 180px;
 }
 .card-title {
     margin-top: 0px;

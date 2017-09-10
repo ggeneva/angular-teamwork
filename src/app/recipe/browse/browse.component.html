@@ -36,7 +36,7 @@
   </div>
   <div class="row">
     <ng-container *ngIf="recipes">
-      <div *ngFor="let recipe of recipes | filterRecipes: filter | paging: page" class="col-sm-4">
+      <div *ngFor="let recipe of recipes | filterRecipes: filter | paging: page" class="col-md-4">
         <app-recipe-card [recipe]="recipe"></app-recipe-card>
       </div>
     </ng-container>
