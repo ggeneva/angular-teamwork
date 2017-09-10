@@ -69,11 +69,3 @@ td {
 #like-btn {
   font-size: 18px;
 }
-
-#like-btn:active {
-  background: red;
-}
-
-#like-btn:hover {
-  background: red;
-}
