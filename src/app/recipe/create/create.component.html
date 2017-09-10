@@ -14,7 +14,19 @@
           <label class="sr-only" for="name">Name</label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file-text-o" aria-hidden="true"></i></div>
-            <input placeholder="Recipe name" name="name" [(ngModel)]="recipe.name" class="form-control" required autofocus/>
+            <input type="text" placeholder="Recipe name" name="recipeName" [(ngModel)]="recipe.name" required minlength="4" maxlength="20"
+              #recipeName="ngModel" class="form-control" autofocus/>
+            <div *ngIf="(recipeName.errors) && (recipeName.dirty || recipeName.touched)" class="alert alert-danger">
+              <div [hidden]="!recipeName.errors.required">
+                Name is required.
+              </div>
+              <div [hidden]="!recipeName.errors.minlength">
+                Name must be at least 4 characters long.
+              </div>
+              <div [hidden]="!recipeName.errors.maxlength">
+                Name must be at least 20 characters long.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -26,8 +38,16 @@
           <label class="sr-only" for="preparationTime">Preparation time: (min) </label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-            <input placeholder="Preparation time: (min)" name="preparationTime" [(ngModel)]="recipe.preparationTime" class="form-control"
-              required />
+            <input type="text" appOnlyNumber placeholder="Preparation time: (min)" name="preparationTime" [(ngModel)]="recipe.preparationTime"
+              class="form-control" #prepartionTime="ngModel" required maxlength="3" required />
+            <div *ngIf="prepartionTime.errors && (prepartionTime.dirty || prepartionTime.touched)" class="alert alert-danger">
+              <div [hidden]="!prepartionTime.errors.required">
+                Preparation Time is required.
+              </div>
+              <div [hidden]="!prepartionTime.errors.maxlength">
+                Preparation Time must be less than 4 digits long.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -39,8 +59,16 @@
           <label class="sr-only" for="cookingTime">Cooking time: (min) </label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-            <input placeholder="Cooking time: (min)" name="cookingTime" [(ngModel)]="recipe.cookingTime" class="form-control" required
-            />
+            <input type="text" appOnlyNumber placeholder="Cooking time: (min)" name="cookingTime" [(ngModel)]="recipe.cookingTime" #cookingTime="ngModel"
+              class="form-control" minlength="0" maxlength="3" required />
+            <div *ngIf="cookingTime.errors && (cookingTime.dirty || cookingTime.touched)" class="alert alert-danger">
+              <div [hidden]="!cookingTime.errors.required">
+                Cooking Time is required.
+              </div>
+              <div [hidden]="!cookingTime.errors.maxlength">
+                Cooking Time must be less than 4 digits long.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -52,7 +80,16 @@
           <label class="sr-only" for="servings">Servings </label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-users" aria-hidden="true"></i></div>
-            <input placeholder="Servings" name="servings" [(ngModel)]="recipe.servings" class="form-control" required />
+            <input type="text" appOnlyNumber placeholder="Servings" name="servings" [(ngModel)]="recipe.servings" #servings="ngModel"
+              class="form-control" minlength="0" required maxlength="3" />
+            <div *ngIf="servings.errors && (servings.dirty || servings.touched)" class="alert alert-danger">
+              <div [hidden]="!servings.errors.required">
+                Servings Time is required.
+              </div>
+              <div [hidden]="!servings.errors.maxlength">
+                Servings Time must be less than 4 digits long.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -64,18 +101,24 @@
           <label class="sr-only" for="description">Description </label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-list-ul" aria-hidden="true"></i></div>
-            <textarea placeholder="Recipe description" name="description" [(ngModel)]="recipe.description" class="form-control"></textarea>
+            <textarea id='description' placeholder="Recipe description" name="description" [(ngModel)]="recipe.description" #description="ngModel"
+              class="form-control" required></textarea>
+              <div *ngIf="description.errors && (description.dirty || description.touched)" class="alert alert-danger">
+                <div [hidden]="!description.errors.required">
+                  Description is required.
+                </div>
+              </div>
           </div>
         </div>
       </div>
     </div>
-    <input type="file" name="file" id="file" class="inputfile" #fileUpload (change)="sendPreview($event)"/>
+    <input type="file" name="file" id="file" class="inputfile" #fileUpload (change)="sendPreview($event)" />
     <label for="file"><i class="fa fa-globe" aria-hidden="true"></i>&nbsp;Choose a photo...</label>
-    <app-image-previewer [maxSize]="300" [imageUrl]="imageUrl" ></app-image-previewer>
+    <app-image-previewer [maxSize]="300" [imageUrl]="imageUrl"></app-image-previewer>
     <div class="row" style="padding-top: 1rem">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <button type="submit" id="share" value="Create" class="btn btn-success">
+        <button type="submit" [disabled]="!createRecipeForm.valid" id="share" value="Create" class="btn btn-success">
               <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;&nbsp;Share it
             </button>
       </div>

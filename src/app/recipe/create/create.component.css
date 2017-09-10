@@ -36,3 +36,17 @@ h2 {
 .inputfile + label {
 	cursor: pointer; /* "hand" cursor */
 }
+
+#description { 
+    resize: vertical; 
+    max-height: 300px; 
+    min-height: 200px; 
+    }
+
+.ng-valid[required], ng-valid.required{
+    border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+    border-left: 5px solid #A94442;
+}

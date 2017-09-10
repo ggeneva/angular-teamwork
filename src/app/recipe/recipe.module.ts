@@ -15,6 +15,7 @@ import { ImagePreviewerComponent } from '../shared/image-previewer/image-preview
 import { PagingPipe } from '../pipes/paging.pipe';
 import { DateifyPipe } from '../pipes/dateify.pipe';
 import { SortRecipesPipe } from '../pipes/sort-recipes.pipe';
+import { OnlyNumberDirective } from './../shared/number-directive/number.directive';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { SortRecipesPipe } from '../pipes/sort-recipes.pipe';
     ImagePreviewerComponent,
     PagingPipe,
     DateifyPipe,
-    SortRecipesPipe
+    SortRecipesPipe,
+    OnlyNumberDirective
   ],
   providers: []
 })
