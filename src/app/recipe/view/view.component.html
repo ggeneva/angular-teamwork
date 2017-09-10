@@ -39,7 +39,7 @@
             <hr>
             <div class="comments">
                 <div *ngFor="let comment of recipe.comments">
-                    <app-comment [comment]="comment"></app-comment>
+                    <app-comment [comment]="comment" [uid]="user?.uid" (commentRemoved)="removeComment($event)"></app-comment>
                 </div>
                 <div *ngIf="authService.isLoggedIn()">
                     <app-create-comment [user]="user" (commentSubmitted)="createComment($event)"></app-create-comment>

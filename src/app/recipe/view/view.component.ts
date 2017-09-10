@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Recipe } from '../../models/recipe.model';
 import { User } from '../../models/user.model';
+import { Comment } from '../../models/comment.model';
 import { DataService } from '../../providers/data.service';
 import { AuthService } from '../../providers/auth.service';
 import { UserService } from '../../providers/user.service';
@@ -41,6 +42,20 @@ export class ViewComponent implements OnInit, OnDestroy {
       dateCreated: now,
       dateUpdated: now
     });
+
+    this.db.recipes.set(this.recipe.$key, this.recipe);
+  }
+
+  removeComment(comment: Comment) {
+    if (this.user.uid !== comment.author.uid) {
+      return;
+    }
+
+    const index = this.recipe.comments.indexOf(comment);
+
+    if (index > -1) {
+      this.recipe.comments.splice(index, 1);
+    }
 
     this.db.recipes.set(this.recipe.$key, this.recipe);
   }

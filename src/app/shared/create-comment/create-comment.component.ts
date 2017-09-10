@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../providers/user.service';
 import { User } from '../../models/user.model';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create-comment',
@@ -8,6 +9,10 @@ import { User } from '../../models/user.model';
   styleUrls: ['./create-comment.component.css']
 })
 export class CreateCommentComponent implements OnInit {
+
+  public createComment = new FormGroup({
+    text: new FormControl()
+  });
 
   @Input()
   user: User;
@@ -22,6 +27,7 @@ export class CreateCommentComponent implements OnInit {
 
   submitComment(text: string) {
     this.commentSubmitted.emit(text);
+    this.createComment.reset();
   }
 
 }
