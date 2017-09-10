@@ -34,8 +34,14 @@
                 <p>{{recipe.description}}</p>
             </div>
             <button id="like-btn" class="btn rounded-circle">
-                <i class="fa fa-heart" aria-hidden="true"></i>
+                {{recipe.likes?.length || 0}}&nbsp;<i class="fa fa-heart" aria-hidden="true"></i>
             </button>
+            <br/>
+            <ng-container *ngIf="authService.isLoggedIn() && user && user.uid === recipe.authorUid">
+              <div class="text-right">
+                <a class="delete-recipe" (click)="removeRecipe()"><small>DELETE RECIPE</small></a>
+              </div>
+            </ng-container>
             <hr>
             <div class="comments">
                 <div *ngFor="let comment of recipe.comments">
@@ -49,7 +55,7 @@
         </div>
       </div>
 
-      <div *ngIf="notFound">
+      <div class="not-found" *ngIf="notFound">
         Recipe not found!
         </div>
     </div>
