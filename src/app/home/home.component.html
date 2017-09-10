@@ -17,5 +17,10 @@
 </div>
 
 <p>
-  home works!
+  last recipes
 </p>
+
+<ng-container *ngFor="let recipe of lastRecipes">
+  {{recipe.name}}
+  <br/>
+</ng-container>
