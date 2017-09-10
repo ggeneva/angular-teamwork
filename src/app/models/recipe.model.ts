@@ -12,6 +12,7 @@ export class Recipe {
     dateUpdated: number;
     imageUrl: string;
     author: User;
+    authorUid: string;
     likes: number;
     comments: Comment[];
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Comment } from '../../models/comment.model';
 
 @Component({
@@ -10,6 +10,12 @@ export class CommentComponent implements OnInit {
 
   @Input()
   comment: Comment;
+
+  @Input()
+  uid: string;
+
+  @Output()
+  commentRemoved = new EventEmitter<string>();
 
   constructor() { }
 

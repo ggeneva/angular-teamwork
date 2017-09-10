@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-      <div *ngIf="recipe">
+      <div *ngIf="recipe && recipe.name">
         <div class="card">
           <a class="img-card" routerLink="/recipes/browse/{{recipe.$key}}">
             <img *ngIf="!recipe.imageUrl" src="../../../assets/images/jumbotron-img.jpg" />
@@ -48,6 +48,10 @@
           </div>
         </div>
       </div>
+
+      <div *ngIf="notFound">
+        Recipe not found!
+        </div>
     </div>
     <div class="col-md-2"></div>
   </div>

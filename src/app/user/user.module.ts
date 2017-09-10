@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     UserComponent,
     LogoutComponent,
-    ProfileComponent
+    ProfileComponent,
+    RecipeCardComponent
   ]
 })
 export class UserModule { }

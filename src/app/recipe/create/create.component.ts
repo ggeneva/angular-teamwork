@@ -125,6 +125,7 @@ export class CreateComponent implements OnInit {
 
     this.userService.getCurrentUser().then(dbUser => {
       this.recipe.author = dbUser;
+      this.recipe.authorUid = dbUser.uid;
     }).then(() => {
       this.db.recipes.add(this.recipe)
         .then(key => {

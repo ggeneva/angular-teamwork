@@ -21,6 +21,8 @@ export class ViewComponent implements OnInit, OnDestroy {
   private recipeKey: string;
   public recipe: Recipe;
 
+  private notFound = false;
+
   constructor(private db: DataService,
     public authService: AuthService,
     private userService: UserService,
@@ -55,9 +57,8 @@ export class ViewComponent implements OnInit, OnDestroy {
       this.recipeSub = this.db.recipes.getObservableObject(this.recipeKey)
         .subscribe(recipe => {
           this.recipe = recipe;
-          // TODO: implement me
           if (!this.recipe.name) {
-            console.log('recipe not found');
+            this.notFound = true;
           }
         });
     });
