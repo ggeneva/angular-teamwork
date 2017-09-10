@@ -1,18 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../providers/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, } from '@angular/router';
+import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
-  constructor(public authService: AuthService, private router: Router) {
+  private paramsSub: ISubscription;
+  private params;
+
+  constructor(public authService: AuthService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.paramsSub = this.route.params.subscribe(params => {
+      this.params = params;
+    });
+  }
+
+  ngOnDestroy() {
+    this.paramsSub.unsubscribe();
   }
 
   public loginWithFacebook() {
@@ -21,7 +32,7 @@ export class LoginComponent implements OnInit {
         console.log(error);
       })
       .then(() => {
-        this.router.navigate(['']);
+        this.redirectAfterLogin();
       });
   }
 
@@ -31,7 +42,7 @@ export class LoginComponent implements OnInit {
         console.log(error);
       })
       .then(() => {
-        this.router.navigate(['']);
+        this.redirectAfterLogin();
       });
   }
 
@@ -41,8 +52,16 @@ export class LoginComponent implements OnInit {
         console.log(error);
       })
       .then(() => {
-        this.router.navigate(['']);
+        this.redirectAfterLogin();
       });
+  }
+
+  private redirectAfterLogin() {
+    if (this.params && this.params.return) {
+      this.router.navigate([this.params.return]);
+    } else {
+      this.router.navigate(['']);
+    }
   }
 
 }
