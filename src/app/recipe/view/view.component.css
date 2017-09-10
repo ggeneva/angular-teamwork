@@ -124,14 +124,31 @@ td {
     font-size: 5vw;
   }
 }
+
 @media screen and (min-width: 765px) {
-    .card {
-       margin-right:0%;
-    }
+  .card {
+    margin-right: 0%;
+  }
 }
 
 @media screen and (min-width: 995px) {
-    #description {
-       font-size:1.5vw;
-    }
+  #description {
+    font-size: 1.5vw;
+  }
+}
+
+.delete-recipe {
+  cursor: pointer;
+}
+
+.not-found {
+  margin-top: 20vh;
+  font-size: 6vw;
+}
+
+@media screen and (min-width: 765px) {
+  .not-found {
+    margin-top: 20vh;
+    font-size: 3vw;
+  }
 }

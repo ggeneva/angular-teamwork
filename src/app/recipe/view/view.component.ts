@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Recipe } from '../../models/recipe.model';
 import { User } from '../../models/user.model';
@@ -58,6 +58,21 @@ export class ViewComponent implements OnInit, OnDestroy {
     }
 
     this.db.recipes.set(this.recipe.$key, this.recipe);
+  }
+
+  removeRecipe() {
+
+    if (this.user &&
+      this.recipe &&
+      this.user.uid === this.recipe.authorUid) {
+      const recipeName = this.recipe.name;
+
+      this.db.recipes.remove(this.recipe.$key)
+        .then(() => {
+          this.router.navigateByUrl('recipes/browse');
+          alert('Your recipe for ' + recipeName + ' has been removed!');
+        });
+    }
   }
 
   ngOnInit() {

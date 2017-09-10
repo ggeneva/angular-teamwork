@@ -24,7 +24,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     CommentComponent,
