@@ -10,18 +10,33 @@ export class UserService {
 
   public registerUserWithEmail(user: User, password): Promise<any> {
     return new Promise((resolve, reject) => {
-      return this.afAuth.auth.createUserWithEmailAndPassword(user.email, password)
+      this.afAuth.auth.createUserWithEmailAndPassword(user.email, password)
         .catch((error) => {
           reject(error);
         })
         .then((result) => {
-          resolve();
+          const photoURL = user.photoURL ? user.photoURL : null;
+          this.afAuth.auth.currentUser.updateProfile(
+            {
+              displayName: user.displayName,
+              photoURL: photoURL
+            })
+            .then(() => {
+              resolve();
+            });
         });
     });
   }
 
-  public getCurrentUser() {
-    return this.updateCurrentUser(this.afAuth.auth.currentUser);
+  public getCurrentUser(): Promise<User> {
+    return new Promise((resolve, reject) => {
+      const sub = this.afAuth.authState.subscribe(data => {
+        const dbUser: User = this.updateCurrentUser(data);
+
+        sub.unsubscribe();
+        resolve(dbUser);
+      });
+    });
   }
 
   private updateCurrentUser(dbUser) {

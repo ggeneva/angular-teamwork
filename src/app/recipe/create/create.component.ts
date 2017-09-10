@@ -122,23 +122,26 @@ export class CreateComponent implements OnInit {
 
     this.recipe.dateCreated = now;
     this.recipe.dateUpdated = now;
-    this.recipe.author = this.userService.getCurrentUser();
 
-    this.db.recipes.add(this.recipe)
-      .then(key => {
-        console.log(key);
-        if (fileBrowser.files && fileBrowser.files[0]) {
-          this.fs.uploadFile(fileBrowser.files[0], key)
-            .then(url => {
-              this.db.recipes.update(key, { imageUrl: url })
-                .then(() => {
-                  this.router.navigateByUrl('recipes/browse/' + key);
-                });
-            });
-        } else {
-          this.router.navigateByUrl('recipes/browse/' + key);
-        }
-      });
+    this.userService.getCurrentUser().then(dbUser => {
+      this.recipe.author = dbUser;
+    }).then(() => {
+      this.db.recipes.add(this.recipe)
+        .then(key => {
+          console.log(key);
+          if (fileBrowser.files && fileBrowser.files[0]) {
+            this.fs.uploadFile(fileBrowser.files[0], key)
+              .then(url => {
+                this.db.recipes.update(key, { imageUrl: url })
+                  .then(() => {
+                    this.router.navigateByUrl('recipes/browse/' + key);
+                  });
+              });
+          } else {
+            this.router.navigateByUrl('recipes/browse/' + key);
+          }
+        });
+    });
   }
   onValueChanged(data?: any) {
     if (!this.createRecipeFrom) {

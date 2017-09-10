@@ -76,20 +76,20 @@ export class RegisterComponent implements OnInit {
     this.onValueChanged(); // reset validation messages
   }
 
-ngOnInit() {
-}
+  ngOnInit() {
+  }
 
-registerUser() {
-  this.user.displayName = this.userSignUpFrom.value['firstName'] + ' ' + this.userSignUpFrom.value['lastName'];
-  this.user.email = this.userSignUpFrom.value['email'];
-  this.userService.registerUserWithEmail(this.user, this.userSignUpFrom.value['password'])
-    .catch((error) => {
-      console.log(error);
-    })
-    .then((result) => {
-      this.router.navigate(['']);
-    });
-}
+  registerUser() {
+    this.user.displayName = this.userSignUpFrom.value['firstName'] + ' ' + this.userSignUpFrom.value['lastName'];
+    this.user.email = this.userSignUpFrom.value['email'];
+    this.userService.registerUserWithEmail(this.user, this.userSignUpFrom.value['password'])
+      .catch((error) => {
+        console.log(error);
+      })
+      .then((result) => {
+        this.router.navigate(['']);
+      });
+  }
 
   onValueChanged(data?: any) {
     if (!this.userSignUpFrom) {

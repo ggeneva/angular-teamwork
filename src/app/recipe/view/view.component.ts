@@ -45,7 +45,10 @@ export class ViewComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
-      this.user = this.userService.getCurrentUser();
+      this.userService.getCurrentUser()
+        .then(dbUser => {
+          this.user = dbUser;
+        });
     }
     this.recipeKeySub = this.activatedRoute.params.subscribe((params: Params) => {
       this.recipeKey = params['key'];
