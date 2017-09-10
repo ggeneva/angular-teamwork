@@ -1,6 +1,8 @@
 .black {
-    width:100vw;
-    height:100vw;
+    background: #0E1010;
+}
+#carrousel {
+    padding-bottom: 50px;
 }
 .bg {
     background: url("../../assets/images/jumbotron-img2.jpg") no-repeat center center;
@@ -86,9 +88,4 @@
     .carousel-control-prev {
         left:0px;
     }
-}
-
-.black {
-    background:black;
-    height: 100vw;
 }
