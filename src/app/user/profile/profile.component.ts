@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../providers/user.service';
+import { AuthService } from '../../providers/auth.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-profile',
@@ -8,14 +10,16 @@ import { UserService } from '../../providers/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  public user: any;
+  public user: User;
 
-  constructor(public userService: UserService) {
-    this.user = this.userService.getCurrentUser();
-   }
+  constructor(public userService: UserService, public authService: AuthService) {
+    this.userService.getCurrentUser()
+      .then(dbUser => {
+        this.user = dbUser;
+      });
+  }
 
   ngOnInit() {
-    console.log(this.user);
   }
 
 }

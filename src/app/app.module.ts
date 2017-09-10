@@ -18,6 +18,7 @@ import { SortRecipesPipe } from './pipes/sort-recipes.pipe';
 import { FooterComponent } from './shared/footer/footer.component';
 import { FileService } from './providers/file.service';
 import { PagingPipe } from './pipes/paging.pipe';
+import { RouteGuardService } from './providers/route-guard.service';
 import { ConfirmDirective } from './directives/confirm-directive/confirm-link.directive';
 
 export const dbConfig = {
@@ -49,6 +50,7 @@ export const dbConfig = {
     UserService,
     DataService,
     FileService,
+    RouteGuardService,
     AngularFireAuth,
     AngularFireDatabase
   ],

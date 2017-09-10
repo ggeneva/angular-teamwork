@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form-horizontal" ngNativeValidate #registerForm="ngForm" (ngSubmit)="registerUser()">
+    <form [formGroup]="userSignUpFrom" class="form-horizontal" ngNativeValidate #registerForm="ngForm" (ngSubmit)="registerUser()">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -16,15 +16,9 @@
                         <div class="input-group-addon" style="width: 2.6rem">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </div>
-                        <input type="text" name="firstName" class="form-control" id="firstName" [(ngModel)]="formFirstName" #firstName=ngModel minlength="4"
-                            maxlength="16" placeholder="First Name" required autofocus/>
-                            <div *ngIf="firstName.errors && (firstName.dirty || firstName.touched)" class="alert alert-danger">
-                            <div [hidden]="!firstName.errors.required">
-                                First Name is required.
-                            </div>
-                            <div [hidden]="!firstName.errors.minlength">
-                                First Name should be more than 4 characters long.
-                            </div>
+                        <input type="text" name="firstName" placeholder="First Name" class="form-control" formControlName="firstName" id="firstName" required autofocus/>
+                        <div *ngIf="formErrors.firstName" class="alert alert-danger">
+                            {{ formErrors.firstName }}
                         </div>
                     </div>
                 </div>
@@ -39,15 +33,10 @@
                         <div class="input-group-addon" style="width: 2.6rem">
                             <i class="fa fa-user-o" aria-hidden="true"></i>
                         </div>
-                        <input type="text" name="lastName" class="form-control" id="lastName" [(ngModel)]="formLastName" #lastName=ngModel minlength="4"
-                            maxlength="16" placeholder="Last Name" required autofocus/>
-                            <div *ngIf="lastName.errors && (lastName.dirty || lastName.touched)" class="alert alert-danger">
-                            <div [hidden]="!lastName.errors.required">
-                                Last Name is required.
-                            </div>
-                            <div [hidden]="!lastName.errors.minlength">
-                                Last Name should be more than 4 characters long.
-                            </div>
+                        <input type="text" name="lastName" class="form-control" formControlName="lastName" id="lastName" placeholder="Last Name"
+                            required autofocus/>
+                        <div *ngIf="formErrors.lastName" class="alert alert-danger">
+                            {{ formErrors.lastName }}
                         </div>
                     </div>
                 </div>
@@ -60,18 +49,10 @@
                     <label class="sr-only" for="email">E-Mail Address</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                        <input type="text" name="email" class="form-control" id="email" [(ngModel)]="user.email" #email="ngModel" minlength="6" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$"
-                            placeholder="you@example.com" required autofocus/>
-                            <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
-                            <div [hidden]="!email.errors.required">
-                                Email is required.
-                            </div>
-                            <div [hidden]="!email.errors.minlength">
-                                Email should be more than 6 characters.
-                            </div>
-                            <div [hidden]="!email.errors.pattern">
-                                Email should match the required pattern.
-                            </div>
+                        <input type="text" name="email" class="form-control" id="email" formControlName="email" placeholder="you@example.com" required
+                            autofocus/>
+                        <div *ngIf="formErrors.email" class="alert alert-danger">
+                            {{ formErrors.email }}
                         </div>
                     </div>
                 </div>
@@ -84,18 +65,9 @@
                     <label class="sr-only" for="password">Password</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                        <input type="password" name="password" class="form-control" id="password" [(ngModel)]="formPassword" #password="ngModel" placeholder="Password"
-                            minlength="6" maxlength="20" required/>
-                                                    <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
-                            <div [hidden]="!password.errors.required">
-                                Password is required.
-                            </div>
-                            <div [hidden]="!password.errors.minlength">
-                                Password should be more than 6 characters.
-                            </div>
-                            <div [hidden]="!password.errors.minlength">
-                                Password should be less than 20 characters long.
-                            </div>
+                        <input type="password" placeholder="Password" formControlName="password" class="form-control" id="password" required/>
+                        <div *ngIf="formErrors.password" class="alert alert-danger">
+                            {{ formErrors.password }}
                         </div>
                     </div>
                 </div>
@@ -103,7 +75,6 @@
             <div class="col-md-3">
                 <div class="form-control-feedback">
                     <span class="text-danger align-middle">
-                    <!-- Put password error message here -->
                     </span>
                 </div>
             </div>

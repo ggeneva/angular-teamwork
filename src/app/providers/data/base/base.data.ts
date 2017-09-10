@@ -3,10 +3,10 @@ import 'rxjs/add/operator/first';
 import { Observable } from 'rxjs/Observable';
 
 export class BaseData {
-    private list: FirebaseListObservable<any[]>;
-    private listName: string;
+    protected list: FirebaseListObservable<any[]>;
+    protected listName: string;
 
-    constructor(private db: AngularFireDatabase, private ModelClass) {
+    constructor(protected db: AngularFireDatabase, private ModelClass) {
         this.listName = this.getCollectionName();
         this.list = this.db.list('/' + this.listName);
     }

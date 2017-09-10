@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../providers/user.service';
 import { User } from '../../models/user.model';
 
@@ -12,19 +12,77 @@ import { User } from '../../models/user.model';
 })
 export class RegisterComponent implements OnInit {
 
-  public user: User = new User();
-  public formFirstName: string;
-  public formLastName: string;
-  public formPassword: string;
+  userSignUpFrom: FormGroup;
 
-  constructor(private userService: UserService, private router: Router) { }
+  formErrors = {
+    'email': '',
+    'password': '',
+    'firstName': '',
+    'lastName': ''
+  };
+
+  validationMessages = {
+    'email': {
+      'required': 'Email is required.',
+      'email': 'Must be a valid email'
+    },
+    'password': {
+      'required': 'Password is required.',
+      'minlength': 'Password must be at least 5 characters long.',
+      'maxlength': 'Password cannot be more than 20 characters long.',
+    },
+    'firstName': {
+      'required': 'First name is required.',
+      'minlength': 'First name must be at least 4 characters long',
+      'maxlength': 'First name cannot be more than 20 characters long.',
+    },
+    'lastName': {
+      'required': 'Last name is required.',
+      'minlength': 'Last name must be at least 4 characters long',
+      'maxlength': 'Last name cannot be more than 20 characters long.',
+    }
+  };
+  public user: User = new User();
+
+  constructor(private userService: UserService, private router: Router,
+    private fb: FormBuilder) {
+    this.buildForm();
+  }
+  buildForm(): void {
+    this.userSignUpFrom = this.fb.group({
+      'email': ['', [
+        Validators.required,
+        Validators.email
+      ]
+      ],
+      'password': ['', [
+        Validators.minLength(5),
+        Validators.maxLength(20)
+      ]
+      ],
+      'firstName': ['', [
+        Validators.minLength(4),
+        Validators.maxLength(20)
+      ]
+      ],
+      'lastName': ['', [
+        Validators.minLength(4),
+        Validators.maxLength(20)
+      ]
+      ]
+    });
+
+    this.userSignUpFrom.valueChanges.subscribe(data => this.onValueChanged(data));
+    this.onValueChanged(); // reset validation messages
+  }
 
   ngOnInit() {
   }
 
   registerUser() {
-    this.user.displayName = this.formFirstName + ' ' + this.formLastName;
-    this.userService.registerUserWithEmail(this.user, this.formPassword)
+    this.user.displayName = this.userSignUpFrom.value['firstName'] + ' ' + this.userSignUpFrom.value['lastName'];
+    this.user.email = this.userSignUpFrom.value['email'];
+    this.userService.registerUserWithEmail(this.user, this.userSignUpFrom.value['password'])
       .catch((error) => {
         console.log(error);
       })
@@ -33,4 +91,26 @@ export class RegisterComponent implements OnInit {
       });
   }
 
+  onValueChanged(data?: any) {
+    if (!this.userSignUpFrom) {
+      return;
+    }
+    const form = this.userSignUpFrom;
+    for (const field in this.formErrors) {
+      if (this.formErrors.hasOwnProperty(field)) {
+        // clear previous error message (if any)
+        this.formErrors[field] = '';
+        const control = form.get(field);
+
+        if (control && control.dirty && !control.valid) {
+          const messages = this.validationMessages[field];
+          for (const key in control.errors) {
+            if (this.formErrors.hasOwnProperty(field)) {
+              this.formErrors[field] += messages[key] + ' ';
+            }
+          }
+        }
+      }
+    }
+  }
 }
