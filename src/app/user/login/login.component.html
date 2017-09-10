@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form-horizontal" ngNativeValidate role="form" method="POST" action="/login">
+    <form class="form-horizontal" #loginForm="ngForm" ngNativeValidate role="form" method="POST" action="/login">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -56,7 +56,7 @@
         <div class="row" style="padding-top: 1rem">
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <button (click)="loginWithEmail(email.value, password.value)" type="submit" class="btn btn-success">
+                <button (click)="loginWithEmail(email.value, password.value)" type="submit" [disabled]="!loginForm.valid" class="btn btn-success">
                   <i class="fa fa-sign-in"></i> Login
                 </button>
                 <button (click)="loginWithFacebook()" type="button" class="btn btn-primary">
