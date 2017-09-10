@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
 
   registerUser() {
     this.user.displayName = this.formFirstName + ' ' + this.formLastName;
+    console.log(this.user.displayName);
     this.userService.registerUserWithEmail(this.user, this.formPassword)
       .catch((error) => {
         console.log(error);
