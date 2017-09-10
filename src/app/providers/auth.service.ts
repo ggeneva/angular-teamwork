@@ -19,6 +19,7 @@ export class AuthService {
     if (this.user !== null) {
       return true;
     }
+
     return false;
   }
 
