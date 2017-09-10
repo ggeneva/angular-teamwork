@@ -1,0 +1,54 @@
+<!--<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">   
+           -->
+<div *ngIf="recipe">
+  <div class="card">
+      <a class="img-card" routerLink="/recipes/browse/{{recipe.$key}}">
+          <!--<img src="{{recipe.image}}"/> -->
+          <img *ngIf="!recipe.imageUrl" src="../../../assets/images/jumbotron-img.jpg"/>
+          <img *ngIf="recipe.imageUrl" src="{{recipe.imageUrl}}"/>
+      </a>
+      <div class="card-content">
+          <h4 class="card-title">
+              <a routerLink="/recipes/browse/{{recipe.$key}}">{{recipe.name}}</a>
+          </h4>
+          <table class="table table-bordered">
+              <tbody>
+                <tr *ngIf="recipe.servings">
+                  <td colspan="3">Author:&nbsp;{{recipe.author.displayName}}</td>
+                </tr>
+                <tr> 
+                  <td *ngIf="recipe.servings"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;{{recipe.servings}}</td>
+                  <td *ngIf="recipe.preparationTime"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{recipe.preparationTime}} min</td>
+                  <td *ngIf="recipe.cookingTime"><i class="fa fa-free-code-camp" aria-hidden="true"></i>&nbsp;{{recipe.cookingTime}} min</td>
+                </tr>
+              </tbody>
+          </table>
+          <button id="like-btn" class="btn rounded-circle">
+              {{recipe.likes}}&nbsp;<i class="fa fa-heart" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-success" routerLink="/recipes/browse/{{recipe.$key}}">
+              <i class="fa fa-info-circle" aria-hidden="true"></i> READ MORE
+          </button>
+      </div>
+  </div>
+</div>
+            <!--
+        </div>
+    </div>
+</div>
+-->
+<!--
+<div *ngIf="recipe">
+  <p>Name: {{recipe.name}}</p>
+  <p>Description: {{recipe.description}}</p>
+  <p *ngIf="recipe.preparationTime">Preparation(mins): {{recipe.preparationTime}}</p>
+  <p *ngIf="recipe.cookingTime">Cooking(mins): {{recipe.cookingTime}}</p>
+  <p *ngIf="recipe.servings">Servings: {{recipe.servings}}</p>
+  <p>Created on: {{recipe.dateCreated}}</p>
+  <p>Updated on: {{recipe.dateUpdated}}</p>
+  <p *ngIf="recipe.likes">Likes: {{recipe.likes}}</p>
+  <p *ngIf="recipe.image">ImageURL: {{recipe.image}}</p>
+</div>
+-->

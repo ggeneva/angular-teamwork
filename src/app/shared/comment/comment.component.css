@@ -1,0 +1,39 @@
+.thumbnail {
+    padding:0px;
+}
+.card {
+    position:relative;
+    width:100%;
+    margin-top:5px;
+    margin-bottom:15px;
+    
+}
+.card>.card-heading:after,.card>.card-heading:before{
+	position:absolute;
+	top:11px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.card>.card-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+.card>.card-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+@media screen and (max-width: 575px) {
+    .thumbnail {
+        margin: auto;
+        width:20%;
+        height: 20%;
+    }
+}

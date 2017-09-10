@@ -1,0 +1,14 @@
+#image-preview {
+  display: inline-block;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  padding: 1px;
+}
+
+#image-preview>img {
+  max-height: 300px;
+  max-width: 300px;
+}

@@ -1,0 +1,6 @@
+<form class="form-comment">
+    <p>What do you think about that recipe, <b><u>{{user.displayName}}</u></b>?</p>
+    <!-- TO DO <p *ngIf="user.imageUrl">{{user.imageUrl}}</p> -->
+    <textarea #commentText></textarea>
+    <button id="btn-comment" class="btn btn-success" (click)="submitComment(commentText.value)"><i class="fa fa-commenting-o" aria-hidden="true"></i>Submit</button>
+</form>

@@ -1,0 +1,13 @@
+.formcomment {
+    min-width:200px;
+    position: relative;
+    display: inline-block;
+}
+form > p {
+    font-weight: 600;
+}
+@media screen and (min-width: 440px) {
+    #btn-comment {
+        margin-top: -27px;
+    }
+}

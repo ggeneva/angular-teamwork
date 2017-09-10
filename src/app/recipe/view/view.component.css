@@ -1,0 +1,110 @@
+.card {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 4px 7px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    transition: box-shadow .25s;
+    text-align: center;
+    padding:15px;
+    margin-top: 15px;
+}
+.card:hover {
+    box-shadow: 0 12px 22px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.img-card {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    display: block;
+    overflow: hidden;
+}
+.img-card img{
+    width: 100%;
+    max-height: 600px;
+    object-fit:cover;
+    transition: all .25s ease;
+}
+.card-title {
+    margin-top: 0px;
+    font-size: 3vw;
+}
+.card-title > h4 {
+    text-align: center;
+}
+.card-title a {
+    text-shadow: #444 0 1px 1px;
+    font-weight:bold;
+    color:#22A93C;
+    text-decoration: none !important;
+}
+table {
+    width: 100%;
+    height: 10%;
+    font-size: 1.5em;
+    font-weight: 600;
+    background: rgba(235, 231, 231, 0.20) 
+}
+td {
+    height: 1vw;
+}
+.card-content {
+    height: 40%;
+}
+.table td, .table th {
+    padding: 0.5px;
+    border: none;
+}
+#like-btn {
+    font-size: 2vw;
+}
+#like-btn:active{
+    background:red;
+}
+#like-btn:hover{
+    background:red;
+}
+#description {
+    font-weight: 500;
+    font-size: 2vw;
+}
+.comments {
+    width:80%;
+    background: rgba(235, 231, 231, 0.20);
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 2%;
+}
+@media screen and (max-width: 900px) {
+        table {
+            font-size:18px;
+        }
+        .card-title {
+            font-size: 4vw;
+        }
+        #like-btn {
+            font-size: 4vw;
+        }
+        #description {
+            font-size: 16px;
+        }
+}
+@media screen and (max-width: 500px) {
+    table {
+        font-size:12px;
+    }
+    .card-title {
+        font-size: 5vw;
+    }
+    #like-btn {
+        font-size: 5vw;
+    }
+}
+@media screen and (min-width: 765px) {
+    .card {
+
+       margin-right:0%;
+    }
+}
+
