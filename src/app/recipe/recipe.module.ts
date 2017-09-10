@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CreateComponent } from './create/create.component';
 import { RouterModule } from '@angular/router';
 import { RecipeRoutingModule } from './recipe-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowseComponent } from './browse/browse.component';
 import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
 import { FilterRecipesPipe } from '../pipes/filter-recipes.pipe';
@@ -17,12 +17,14 @@ import { DateifyPipe } from '../pipes/dateify.pipe';
 import { SortRecipesPipe } from '../pipes/sort-recipes.pipe';
 import { OnlyNumberDirective } from '../directives/number-directive/number.directive';
 
+
 @NgModule({
   imports: [
     CommonModule,
     RecipeRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   declarations: [CreateComponent,
     BrowseComponent,

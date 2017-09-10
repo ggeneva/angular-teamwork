@@ -1,5 +1,5 @@
 <div class="container">
-  <form ngNativeValidate #createRecipeForm="ngForm" (ngSubmit)="createRecipe()" enctype="multipart/form-data">
+  <form [formGroup]="createRecipeFrom" ngNativeValidate #createRecipeForm="ngForm" (ngSubmit)="createRecipe()" enctype="multipart/form-data">
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
@@ -14,18 +14,9 @@
           <label class="sr-only" for="name">Name</label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-file-text-o" aria-hidden="true"></i></div>
-            <input type="text" placeholder="Recipe name" name="recipeName" [(ngModel)]="recipe.name" required minlength="4" maxlength="20"
-              #recipeName="ngModel" class="form-control" autofocus/>
-            <div *ngIf="(recipeName.errors) && (recipeName.dirty || recipeName.touched)" class="alert alert-danger">
-              <div [hidden]="!recipeName.errors.required">
-                Name is required.
-              </div>
-              <div [hidden]="!recipeName.errors.minlength">
-                Name must be at least 4 characters long.
-              </div>
-              <div [hidden]="!recipeName.errors.maxlength">
-                Name must be at least 20 characters long.
-              </div>
+            <input type="text" placeholder="Recipe name" name="recipeName" formControlName="name" class="form-control" autofocus required/>
+            <div *ngIf="formErrors.name" class="alert alert-danger">
+              {{ formErrors.name }}
             </div>
           </div>
         </div>
@@ -38,15 +29,10 @@
           <label class="sr-only" for="preparationTime">Preparation time: (min) </label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-            <input type="text" appOnlyNumber placeholder="Preparation time: (min)" name="preparationTime" [(ngModel)]="recipe.preparationTime"
-              class="form-control" #prepartionTime="ngModel" required maxlength="3" required />
-            <div *ngIf="prepartionTime.errors && (prepartionTime.dirty || prepartionTime.touched)" class="alert alert-danger">
-              <div [hidden]="!prepartionTime.errors.required">
-                Preparation Time is required.
-              </div>
-              <div [hidden]="!prepartionTime.errors.maxlength">
-                Preparation Time must be less than 4 digits long.
-              </div>
+            <input type="text" appOnlyNumber placeholder="Preparation time: (min)" name="preparationTime" class="form-control" formControlName="preparationTime"
+              required />
+            <div *ngIf="formErrors.preparationTime" class="alert alert-danger">
+              {{ formErrors.preparationTime }}
             </div>
           </div>
         </div>
@@ -59,15 +45,10 @@
           <label class="sr-only" for="cookingTime">Cooking time: (min) </label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-            <input type="text" appOnlyNumber placeholder="Cooking time: (min)" name="cookingTime" [(ngModel)]="recipe.cookingTime" #cookingTime="ngModel"
-              class="form-control" minlength="0" maxlength="3" required />
-            <div *ngIf="cookingTime.errors && (cookingTime.dirty || cookingTime.touched)" class="alert alert-danger">
-              <div [hidden]="!cookingTime.errors.required">
-                Cooking Time is required.
-              </div>
-              <div [hidden]="!cookingTime.errors.maxlength">
-                Cooking Time must be less than 4 digits long.
-              </div>
+            <input type="text" appOnlyNumber placeholder="Cooking time: (min)" name="cookingTime" formControlName="cookingTime" class="form-control"
+              required />
+            <div *ngIf="formErrors.cookingTime" class="alert alert-danger">
+              {{ formErrors.cookingTime }}
             </div>
           </div>
         </div>
@@ -80,15 +61,10 @@
           <label class="sr-only" for="servings">Servings </label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-users" aria-hidden="true"></i></div>
-            <input type="text" appOnlyNumber placeholder="Servings" name="servings" [(ngModel)]="recipe.servings" #servings="ngModel"
-              class="form-control" minlength="0" required maxlength="3" />
-            <div *ngIf="servings.errors && (servings.dirty || servings.touched)" class="alert alert-danger">
-              <div [hidden]="!servings.errors.required">
-                Servings Time is required.
-              </div>
-              <div [hidden]="!servings.errors.maxlength">
-                Servings Time must be less than 4 digits long.
-              </div>
+            <input type="text" appOnlyNumber placeholder="Servings" name="servings" formControlName="servings" class="form-control" required
+            />
+            <div *ngIf="formErrors.servings" class="alert alert-danger">
+              {{ formErrors.servings }}
             </div>
           </div>
         </div>
@@ -101,12 +77,10 @@
           <label class="sr-only" for="description">Description </label>
           <div class="input-group mb-2 mr-sm-2 mb-sm-0">
             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-list-ul" aria-hidden="true"></i></div>
-            <textarea id='description' placeholder="Recipe description" name="description" [(ngModel)]="recipe.description" #description="ngModel"
-              class="form-control" required></textarea>
-              <div *ngIf="description.errors && (description.dirty || description.touched)" class="alert alert-danger">
-                <div [hidden]="!description.errors.required">
-                  Description is required.
-                </div>
+            <textarea id='description' placeholder="Recipe description" name="description" formControlName="description" class="form-control"
+              required></textarea>
+              <div *ngIf="formErrors.description" class="alert alert-danger">
+                {{ formErrors.description }}
               </div>
           </div>
         </div>
