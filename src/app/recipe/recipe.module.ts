@@ -17,6 +17,7 @@ import { DateifyPipe } from '../pipes/dateify.pipe';
 import { SortRecipesPipe } from '../pipes/sort-recipes.pipe';
 import { OnlyNumberDirective } from '../directives/number-directive/number.directive';
 import { SharedModule } from '../shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
