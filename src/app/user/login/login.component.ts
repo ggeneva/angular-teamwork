@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   private paramsSub: ISubscription;
   private params;
+  public error;
 
   constructor(public authService: AuthService, private router: Router, private route: ActivatedRoute) {
   }
@@ -28,31 +29,32 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public loginWithFacebook() {
     this.authService.loginWithFacebook()
-      .catch((error) => {
-        console.log(error);
-      })
       .then(() => {
         this.redirectAfterLogin();
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 
   public loginWithGoogle() {
     this.authService.loginWithGoogle()
-      .catch((error) => {
-        console.log(error);
-      })
       .then(() => {
         this.redirectAfterLogin();
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 
   public loginWithEmail(email: string, password: string) {
-    this.authService.loginWithEmail(email, password)
-      .catch((error) => {
-        console.log(error);
-      })
+    return this.authService.loginWithEmail(email, password)
       .then(() => {
         this.redirectAfterLogin();
+      })
+      .catch((error) => {
+        this.error = error.message;
+        console.log(error.message);
       });
   }
 
