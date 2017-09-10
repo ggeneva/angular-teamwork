@@ -9,11 +9,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class HomeComponent implements OnInit {
 
-  public items: FirebaseListObservable<any>;
-  public shits: any;
-
   constructor(public dataService: DataService) {
-    this.items = dataService.test.getObservableList();
 
     // this.dataService.test.update('-KsiZGMi-PQdqU5sqJKG', { testfieldTwo: 'waw!!!' });
   }

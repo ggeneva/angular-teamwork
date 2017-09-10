@@ -5,18 +5,7 @@ import 'hammerjs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-
-import {
-  MaterialModule,
-  MdCoreModule,
-  MdToolbarModule,
-  MdSidenavModule,
-  MdButtonModule,
-  MdChipsModule,
-  MdListModule,
-  MdMenuModule,
-  MdInputModule
-} from '@angular/material';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +13,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AuthService } from './providers/auth.service';
 import { UserService } from './providers/user.service';
 import { DataService } from './providers/data.service';
+import { FilterRecipesPipe } from './pipes/filter-recipes.pipe';
+import { SortRecipesPipe } from './pipes/sort-recipes.pipe';
+import { FooterComponent } from './shared/footer/footer.component';
+import { FileService } from './providers/file.service';
+import { PagingPipe } from './pipes/paging.pipe';
 
 export const dbConfig = {
   apiKey: 'AIzaSyCx_YIwr9xkNzKdSgl-wPWsihf7l_RbSKE',
@@ -36,25 +30,23 @@ export const dbConfig = {
 
 @NgModule({
   imports: [
+    NgbModule.forRoot(),
     AppRoutingModule,
     BrowserModule,
-    MaterialModule,
-    MdCoreModule,
-    MdListModule,
-    MdMenuModule,
-    MdButtonModule,
     AngularFireModule.initializeApp(dbConfig),
     AngularFireDatabaseModule,
     BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   providers: [
     AuthService,
     UserService,
     DataService,
+    FileService,
     AngularFireAuth,
     AngularFireDatabase
   ],

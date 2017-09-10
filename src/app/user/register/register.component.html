@@ -16,7 +16,7 @@
                         <div class="input-group-addon" style="width: 2.6rem">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </div>
-                        <input type="text" name="firstName" class="form-control" id="firstName" [(ngModel)]="user.firstName" #firstName=ngModel minlength="4"
+                        <input type="text" name="firstName" class="form-control" id="firstName" [(ngModel)]="formFirstName" #firstName=ngModel minlength="4"
                             maxlength="16" placeholder="First Name" required autofocus/>
 
                     </div>
@@ -32,7 +32,7 @@
                         <div class="input-group-addon" style="width: 2.6rem">
                             <i class="fa fa-user-o" aria-hidden="true"></i>
                         </div>
-                        <input type="text" name="lastName" class="form-control" id="lastName" [(ngModel)]="user.lastName" #lastName=ngModel minlength="4"
+                        <input type="text" name="lastName" class="form-control" id="lastName" [(ngModel)]="formLastName" #lastName=ngModel minlength="4"
                             maxlength="16" placeholder="Last Name" required autofocus/>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     <label class="sr-only" for="password">Password</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
-                        <input type="password" name="password" class="form-control" id="password" [(ngModel)]="user.password" placeholder="Password"
+                        <input type="password" name="password" class="form-control" id="password" [(ngModel)]="formPassword" placeholder="Password"
                             minlength="6" maxlength="20" required/>
                     </div>
                 </div>

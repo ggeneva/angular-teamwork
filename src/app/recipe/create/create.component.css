@@ -1,0 +1,38 @@
+.container  {
+    margin-top:5%;
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+.inputfile + label {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: white;
+    background-color: orange;
+    display: inline-block;
+}
+label {
+    padding: 0.5%;
+}
+#share {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+h2 {
+    text-shadow: #444 0 1px 1px;
+    font-weight:bold;
+    color:#22A93C;
+}
+.inputfile:focus + label, 
+.inputfile + label:hover {
+    background-color: green;
+}
+.inputfile + label {
+	cursor: pointer; /* "hand" cursor */
+}
