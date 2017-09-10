@@ -21,7 +21,7 @@ export class ViewComponent implements OnInit, OnDestroy {
   private recipeKey: string;
   public recipe: Recipe;
 
-  private notFound = false;
+  public notFound = false;
 
   constructor(private db: DataService,
     public authService: AuthService,

@@ -22,11 +22,14 @@
       </div>
       <div class="col-md-2"></div>
     </div>
-  </div>
-
-  <p>My recipes</p>
-  <div *ngFor="let recipe of recipes">
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
-    <br/>
+    <hr>
+    <h4 class="card-title">My recipes</h4>
+    <div class="row my-recipe">
+      <ng-container *ngIf="recipes">
+        <div *ngFor="let recipe of recipes" class="col-md-4">
+          <app-recipe-card [recipe]="recipe"></app-recipe-card>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </ng-container>

@@ -1,3 +1,9 @@
+.container {
+    margin-bottom:50px;
+}
+.my-recipes{
+    margin:auto;
+}
 .card {
     display: block;
     background-color: #FCFCFC;
@@ -43,6 +49,11 @@ hr {
     .card-title {
         font-size: 4vw;
     }
+}
+.my-recipes {
+    width:80%;
+    display:block;
+    margin:auto;
 }
 @media screen and (max-width: 400px) {
     .img-card img{
