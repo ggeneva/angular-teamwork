@@ -11,9 +11,6 @@ export class UserService {
   public registerUserWithEmail(user: User, password): Promise<any> {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(user.email, password)
-        .catch((error) => {
-          reject(error);
-        })
         .then((result) => {
           const photoURL = user.photoURL ? user.photoURL : null;
           this.afAuth.auth.currentUser.updateProfile(
@@ -24,6 +21,9 @@ export class UserService {
             .then(() => {
               resolve();
             });
+        })
+        .catch((error) => {
+          reject(error);
         });
     });
   }

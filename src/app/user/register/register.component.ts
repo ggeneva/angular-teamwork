@@ -11,6 +11,7 @@ import { User } from '../../models/user.model';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  public error: any;
 
   userSignUpFrom: FormGroup;
 
@@ -83,11 +84,11 @@ export class RegisterComponent implements OnInit {
     this.user.displayName = this.userSignUpFrom.value['firstName'] + ' ' + this.userSignUpFrom.value['lastName'];
     this.user.email = this.userSignUpFrom.value['email'];
     this.userService.registerUserWithEmail(this.user, this.userSignUpFrom.value['password'])
-      .catch((error) => {
-        console.log(error);
-      })
       .then((result) => {
         this.router.navigate(['']);
+      })
+      .catch((error) => {
+        this.error = error.message;
       });
   }
 
