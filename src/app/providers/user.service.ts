@@ -21,10 +21,6 @@ export class UserService {
   }
 
   public getCurrentUser() {
-    // return Observable.create(observer => {
-    //   observer.next(this.currentUser);
-    //   observer.complete();
-    // })
     return this.updateCurrentUser(this.afAuth.auth.currentUser);
   }
 

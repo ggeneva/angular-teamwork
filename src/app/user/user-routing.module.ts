@@ -7,12 +7,29 @@ import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RouteGuardService } from '../providers/route-guard.service';
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'profile', component: ProfileComponent }
+  {
+    path: 'register', component: RegisterComponent,
+    data: { requiresNotLoggedIn: true },
+    canActivate: [RouteGuardService]
+  },
+  {
+    path: 'login', component: LoginComponent,
+    data: { requiresNotLoggedIn: true },
+    canActivate: [RouteGuardService]
+  },
+  {
+    path: 'logout', component: LogoutComponent,
+    data: { requiresLogin: true },
+    canActivate: [RouteGuardService]
+  },
+  {
+    path: 'profile', component: ProfileComponent,
+    data: { requiresLogin: true },
+    canActivate: [RouteGuardService]
+  }
 ];
 
 @NgModule({
