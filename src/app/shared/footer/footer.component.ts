@@ -11,5 +11,9 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
   }
+  visitGithubRepository() {
+    console.log('Visiting github repository');
+    location.href = 'https://github.com/Xpload/angular-teamwork';
+  }
 
 }
