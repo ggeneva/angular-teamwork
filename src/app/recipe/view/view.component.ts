@@ -7,7 +7,6 @@ import { DataService } from '../../providers/data.service';
 import { AuthService } from '../../providers/auth.service';
 import { UserService } from '../../providers/user.service';
 import { ISubscription } from 'rxjs/Subscription';
-import { ToastsManager } from 'ng2-toastr';
 
 @Component({
   selector: 'app-view',
