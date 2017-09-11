@@ -1,0 +1,97 @@
+.black {
+    background: #0E1010;
+}
+#carrousel {
+    padding-bottom: 50px;
+}
+.bg {
+    background: url("../../assets/images/jumbotron-img2.jpg") no-repeat center center;
+    width: 100%;
+    height: 450px; /*same height as jumbotron */
+    top:0;
+    left:0;
+    z-index: -1;
+}
+  
+.container-fluid {
+    height: 450px;
+    color: white;
+    text-shadow: #444 0 1px 1px;
+    background:transparent;
+    font-weight:bold;
+    width:100%;
+}
+
+.display-3 {
+    font-size:4vw;
+}
+.lead {
+    font-size: 3vw;
+}
+.text {
+    background: rgba(0,0,0,0.2) 
+}
+.container-fluid > h1 {
+    font-weight: bold;
+}
+
+.carousel {
+    width: 350px;
+}
+.carousel-indicators {
+    bottom: -25px !important;
+}
+#content[_ngcontent-c0] {
+    background-color: #1E2021 !important;
+}
+.carousel-item {
+    margin: auto;
+    width:100%;
+}
+.carousel-control-next {
+    right:-44px;
+}
+.carousel-control-prev {
+    left:-40px;
+}
+#carouselExampleIndicators {
+    margin:auto;
+    margin-top:5px;
+}
+#last-created {
+    text-shadow: #444 0 1px 1px;
+    font-weight: bold;
+    color: #22A93C;
+    font-size: 3vw;
+    margin-top:20px;
+    margin-bottom:-20px;
+}
+
+@media screen and (max-width: 650px) {
+    .display-3 {
+        font-size:6vw;
+    }
+    .lead {
+        font-size: 4.2vw;
+    }
+    #last-created {
+        font-size: 4.5vw;
+    }
+}
+@media screen and (max-width: 500px) {
+    .carousel {
+        width: 100%;
+    }
+    .carousel-control-next {
+        right:0px;
+    }
+    .carousel-control-prev {
+        left:0px;
+    }
+}
+
+.black {
+    background:black;
+    height: 100%;
+    padding-bottom: 100px;
+}

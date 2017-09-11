@@ -1,48 +1,68 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../../providers/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, } from '@angular/router';
+import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
-  constructor(public authService: AuthService, private router: Router) {
+  private paramsSub: ISubscription;
+  private params;
+  public error;
+
+  constructor(public authService: AuthService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.paramsSub = this.route.params.subscribe(params => {
+      this.params = params;
+    });
+  }
+
+  ngOnDestroy() {
+    this.paramsSub.unsubscribe();
   }
 
   public loginWithFacebook() {
     this.authService.loginWithFacebook()
-      .catch((error) => {
-        console.log(error);
-      })
       .then(() => {
-        this.router.navigate(['']);
+        this.redirectAfterLogin();
+      })
+      .catch((error) => {
+        this.error = error.message;
       });
   }
 
   public loginWithGoogle() {
     this.authService.loginWithGoogle()
-      .catch((error) => {
-        console.log(error);
-      })
       .then(() => {
-        this.router.navigate(['']);
+        this.redirectAfterLogin();
+      })
+      .catch((error) => {
+        this.error = error.message;
       });
   }
 
   public loginWithEmail(email: string, password: string) {
-    this.authService.loginWithEmail(email, password)
-      .catch((error) => {
-        console.log(error);
-      })
+    return this.authService.loginWithEmail(email, password)
       .then(() => {
-        this.router.navigate(['']);
+        this.redirectAfterLogin();
+      })
+      .catch((error) => {
+        this.error = error.message;
       });
+  }
+
+  private redirectAfterLogin() {
+    if (this.params && this.params.return) {
+      this.router.navigate([this.params.return]);
+    } else {
+      this.router.navigate(['']);
+    }
   }
 
 }

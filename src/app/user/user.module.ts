@@ -6,24 +6,22 @@ import { UserComponent } from './user.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ProfileComponent } from './profile/profile.component';
 
-import { MdInputModule, MaterialModule } from '@angular/material';
 import { UserRoutingModule } from './user-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecipeCardComponent } from '../shared/recipe-card/recipe-card.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     UserRoutingModule,
-    CommonModule,
-    MaterialModule,
-    MdInputModule,
-    FormsModule
+    SharedModule
   ],
   declarations: [
     LoginComponent,
     RegisterComponent,
     UserComponent,
     LogoutComponent,
-    ProfileComponent
+    ProfileComponent,
   ]
 })
 export class UserModule { }

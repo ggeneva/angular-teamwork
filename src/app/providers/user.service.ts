@@ -8,28 +8,35 @@ export class UserService {
   constructor(public afAuth: AngularFireAuth) {
   }
 
-  public registerUserWithEmail(user: User): Promise<any> {
+  public registerUserWithEmail(user: User, password): Promise<any> {
     return new Promise((resolve, reject) => {
-      return this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
+      this.afAuth.auth.createUserWithEmailAndPassword(user.email, password)
+        .then((result) => {
+          const photoURL = user.photoURL ? user.photoURL : null;
+          this.afAuth.auth.currentUser.updateProfile(
+            {
+              displayName: user.displayName,
+              photoURL: photoURL
+            })
+            .then(() => {
+              resolve();
+            });
+        })
         .catch((error) => {
           reject(error);
-        })
-        .then((result) => {
-          this.afAuth.auth.currentUser.updateProfile({
-            displayName: user.firstName + ' ' + user.lastName,
-            photoURL: null
-          });
-          resolve();
         });
     });
   }
 
-  public getCurrentUser() {
-    // return Observable.create(observer => {
-    //   observer.next(this.currentUser);
-    //   observer.complete();
-    // })
-    return this.updateCurrentUser(this.afAuth.auth.currentUser);
+  public getCurrentUser(): Promise<User> {
+    return new Promise((resolve, reject) => {
+      const sub = this.afAuth.authState.subscribe(data => {
+        const dbUser: User = this.updateCurrentUser(data);
+
+        sub.unsubscribe();
+        resolve(dbUser);
+      });
+    });
   }
 
   private updateCurrentUser(dbUser) {

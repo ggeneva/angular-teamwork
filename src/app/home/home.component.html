@@ -1,3 +1,50 @@
-<p>
-  home works!
-</p>
+<div class="black">
+  <div class="bg">
+    <div class="container-fluid">
+      <br>
+      <br>
+      <div class="text">
+        <h1 class="display-3">Welcome to The Little Secrets</h1>
+        <p class="lead">Here you can find many recipes and share your favourites to the World</p>
+        <p>Do you love cooking? Or, you have no idea what to cook today? Here is the right place to find the muse! Enjoy it
+          :)
+        </p>
+        <p class="lead">
+          <a class="btn btn-warning btn-lg" routerLink="/recipes/browse" routerLinkActive="active" role="button">
+            <i class="fa fa-book" aria-hidden="true"></i>
+            Recipes
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <p id="last-created">LAST CREATED RECIPES:</p>
+  <div id="carrousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <ng-container *ngFor="let recipe of lastRecipes; let i = index">
+          <div *ngIf="i === 0" class="carousel-item active">
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
+          </div>
+          <div *ngIf="!(i === 0)" class="carousel-item">
+            <app-recipe-card [recipe]="recipe"></app-recipe-card>
+          </div>
+        </ng-container>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div>
+  </div>
+</div>

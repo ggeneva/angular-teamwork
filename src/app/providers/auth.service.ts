@@ -19,17 +19,18 @@ export class AuthService {
     if (this.user !== null) {
       return true;
     }
+
     return false;
   }
 
   public loginWithGoogle(): Promise<any> {
     return new Promise((resolve, reject) => {
       return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then((success) => {
+          return resolve(success);
+        })
         .catch((error) => {
           return reject(error);
-        })
-        .then(() => {
-          return resolve();
         });
     });
   }
@@ -37,11 +38,11 @@ export class AuthService {
   public loginWithFacebook(): Promise<any> {
     return new Promise((resolve, reject) => {
       return this.afAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
+        .then((success) => {
+          return resolve(success);
+        })
         .catch((error) => {
           return reject(error);
-        })
-        .then(() => {
-          return resolve();
         });
     });
   }
@@ -49,11 +50,11 @@ export class AuthService {
   public loginWithEmail(email: string, password: string): Promise<any> {
     return new Promise((resolve, reject) => {
       return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-        .catch((error) => {
-          return reject(error);
+        .then((success) => {
+          resolve(success);
         })
-        .then(() => {
-          return resolve();
+        .catch((error) => {
+          reject(error);
         });
     });
   }
@@ -61,11 +62,11 @@ export class AuthService {
   public logout() {
     return new Promise((resolve, reject) => {
       return this.afAuth.auth.signOut()
+        .then((success) => {
+          return resolve();
+        })
         .catch((error) => {
           return reject(error);
-        })
-        .then(() => {
-          return resolve();
         });
     });
   }
