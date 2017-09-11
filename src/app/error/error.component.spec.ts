@@ -25,6 +25,10 @@ describe('ErrorComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should be created', () => {
+    expect(component).toBeTruthy();
+  });
+
   it('should display current Path in paragraph element', () => {
     // Arrange.
     const de = fixture.debugElement.query(By.css('p'));
